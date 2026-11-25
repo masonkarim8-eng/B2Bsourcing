@@ -5,6 +5,8 @@ const htmlLanguages = { en: 'en', zh: 'zh-CN', es: 'es', de: 'de' };
 
 const ui = {
   en: {
+    'chat.quoteGaming': 'Ask about gaming chairs',
+    'chat.gamingNotes': 'Interested in the updated gaming chair range. Please send the current designs and options.',
     'chat.viewModel': 'View {model}',
     'chat.addToRfq': 'Add {model} to RFQ',
     'chat.quoteModel': 'Request {model}',
@@ -54,6 +56,8 @@ const ui = {
     'rfq.close': 'Close RFQ list'
   },
   zh: {
+    'chat.quoteGaming': '咨询电竞椅',
+    'chat.gamingNotes': '希望了解更新后的电竞椅系列，请发送最新款式和可选配置。',
     'chat.viewModel': '查看 {model}',
     'chat.addToRfq': '将 {model} 加入询价单',
     'chat.quoteModel': '询价 {model}',
@@ -103,6 +107,8 @@ const ui = {
     'rfq.close': '关闭询价清单'
   },
   es: {
+    'chat.quoteGaming': 'Consultar sillas gaming',
+    'chat.gamingNotes': 'Me interesa la gama actualizada de sillas gaming. Envíenme los diseños y opciones actuales.',
     'chat.viewModel': 'Ver {model}',
     'chat.addToRfq': 'Añadir {model} a la RFQ',
     'chat.quoteModel': 'Solicitar {model}',
@@ -152,6 +158,8 @@ const ui = {
     'rfq.close': 'Cerrar lista de cotización'
   },
   de: {
+    'chat.quoteGaming': 'Gaming-Stühle anfragen',
+    'chat.gamingNotes': 'Interesse an der aktualisierten Gaming-Stuhl-Reihe. Bitte senden Sie aktuelle Designs und Optionen.',
     'chat.viewModel': '{model} ansehen',
     'chat.addToRfq': '{model} zur Anfrage',
     'chat.quoteModel': '{model} anfragen',
