@@ -33,8 +33,11 @@ export function initComparison({ products, getDisclosure, publicSpecs, openQuote
   let shortlist = readShortlist(products);
   let offsetFrame = 0;
 
-  function announce(message) {
-    status.textContent = message;
+  let lastAnnouncement = null;
+  // Keeps the key, not the text, so the message can be re-translated when the language changes.
+  function announce(key, params = {}) {
+    lastAnnouncement = [key, params];
+    status.textContent = t(key, params);
   }
 
   function saveShortlist() {
@@ -42,7 +45,7 @@ export function initComparison({ products, getDisclosure, publicSpecs, openQuote
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(shortlist));
       return true;
     } catch {
-      announce(t('comparison.storageError'));
+      announce('comparison.storageError');
       return false;
     }
   }
@@ -179,15 +182,15 @@ export function initComparison({ products, getDisclosure, publicSpecs, openQuote
     if (!product) return;
     if (shortlist.includes(model)) {
       shortlist = shortlist.filter((item) => item !== model);
-      if (saveShortlist()) announce(t('comparison.removed', { model }));
+      if (saveShortlist()) announce('comparison.removed', { model });
     } else if (shortlist.length >= MAX_MODELS) {
-      announce(t('comparison.full', { model }));
+      announce('comparison.full', { model });
       tray.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       return;
     } else {
       shortlist = [...shortlist, model];
       const remaining = MAX_MODELS - shortlist.length;
-      if (saveShortlist()) announce(t(remaining ? 'comparison.added' : 'comparison.ready', { model, remaining }));
+      if (saveShortlist()) announce(remaining ? 'comparison.added' : 'comparison.ready', { model, remaining });
     }
     renderTray();
   }
@@ -195,7 +198,7 @@ export function initComparison({ products, getDisclosure, publicSpecs, openQuote
   function removeModel(model) {
     if (!shortlist.includes(model)) return;
     shortlist = shortlist.filter((item) => item !== model);
-    if (saveShortlist()) announce(t('comparison.removedShort', { model }));
+    if (saveShortlist()) announce('comparison.removedShort', { model });
     renderTray();
     if (dialog.open) {
       if (shortlist.length < 2) dialog.close();
@@ -208,7 +211,7 @@ export function initComparison({ products, getDisclosure, publicSpecs, openQuote
 
   function openComparison() {
     if (shortlist.length < 2) {
-      announce(t('comparison.needTwo'));
+      announce('comparison.needTwo');
       return;
     }
     renderComparison();
@@ -243,12 +246,13 @@ export function initComparison({ products, getDisclosure, publicSpecs, openQuote
   dialogQuote.addEventListener('click', requestShortlistQuote);
   clearButton.addEventListener('click', () => {
     shortlist = [];
-    if (saveShortlist()) announce(t('comparison.cleared'));
+    if (saveShortlist()) announce('comparison.cleared');
     renderTray();
   });
 
   onLanguageChange(() => {
     renderTray();
+    if (lastAnnouncement) status.textContent = t(...lastAnnouncement);
     if (dialog.open) renderComparison();
   });
   if ('ResizeObserver' in window) new ResizeObserver(updateFloatingOffset).observe(tray);

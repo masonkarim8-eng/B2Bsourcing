@@ -88,6 +88,7 @@ function renderProductContent() {
   const request = document.querySelector('#product-request');
   request.dataset.rfqAdd = product.model;
   request.dataset.rfqOpen = 'true';
+  request.dataset.rfqVariant = 'primary';
   request.setAttribute('aria-pressed', 'false');
 
   const image = document.querySelector('#product-image');
