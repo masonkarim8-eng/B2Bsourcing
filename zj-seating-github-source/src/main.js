@@ -4,7 +4,7 @@ import { publicProducts as products } from './public-products.js';
 import { getDisclosure, publicDescription, publicSpecs } from './disclosure.js';
 import { initComparison } from './comparison.js';
 import { initRFQ, rfqNotes } from './rfq.js';
-import { initI18n, onLanguageChange, t, translateTree } from './i18n.js';
+import { initI18n, onLanguageChange, t, translateText, translateTree } from './i18n.js';
 import { localizedProductName, localizedPublicDescription } from './product-copy.js';
 import { captureAttribution } from './sharing.js';
 import { saveLocalLead } from './lead-handoff.js';
@@ -386,12 +386,63 @@ function getAssistantResponse(question) {
   };
 }
 
-function askAssistant(question) {
-  const cleanQuestion = question.trim();
-  if (!cleanQuestion) return;
+const chatHistory = [];
+let chatLeadSent = false;
+let chatBusy = false;
+
+const CATEGORY_LABELS = { mesh: 'mesh chairs', executive: 'executive chairs', visitor: 'visitor chairs', study: 'study chairs', task: 'task chairs', sofa: 'compressed sofas', all: 'all products' };
+const SECTION_LABELS = { products: 'Products', oem: 'OEM / ODM', factory: 'Factory', quality: 'Quality', about: 'About us', contact: 'Contact' };
+
+function chatActionLabel(action) {
+  switch (action.type) {
+    case 'product': return t('chat.viewModel', { model: action.value });
+    case 'rfq-add': return t('chat.addToRfq', { model: action.value });
+    case 'quote': return action.value ? t('chat.quoteModel', { model: action.value }) : t('chat.startRfq');
+    case 'filter': return t('chat.show', { category: translateText(CATEGORY_LABELS[action.value] || action.value) });
+    case 'scroll': return translateText(SECTION_LABELS[action.value] || action.value);
+    case 'documents': return t('chat.documents');
+    default: return action.value;
+  }
+}
+
+function showTyping() {
+  const typing = document.createElement('article');
+  typing.className = 'assistant-message assistant-message-bot assistant-typing';
+  typing.setAttribute('aria-label', t('chat.typing'));
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  assistantLog.append(typing);
+  assistantLog.scrollTop = assistantLog.scrollHeight;
+  return typing;
+}
+
+async function askAssistant(question) {
+  const cleanQuestion = question.trim().slice(0, 800);
+  if (!cleanQuestion || chatBusy) return;
+  chatBusy = true;
   appendMessage('user', cleanQuestion);
-  const response = getAssistantResponse(cleanQuestion);
-  appendMessage('bot', response.text, response.actions);
+  chatHistory.push({ role: 'user', content: cleanQuestion });
+  const typing = showTyping();
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ messages: chatHistory.slice(-16), language: getLanguage(), page: window.location.pathname, leadSent: chatLeadSent })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.ok) throw new Error(data.error || 'chat');
+    if (data.leadSent) chatLeadSent = true;
+    typing.remove();
+    chatHistory.push({ role: 'assistant', content: data.reply });
+    appendMessage('bot', data.reply, (data.actions || []).map((action) => ({ ...action, label: chatActionLabel(action) })));
+  } catch {
+    // AI unavailable or rate-limited: fall back to the built-in catalog answers.
+    typing.remove();
+    const fallback = getAssistantResponse(cleanQuestion);
+    chatHistory.push({ role: 'assistant', content: fallback.text });
+    appendMessage('bot', fallback.text, fallback.actions);
+  } finally {
+    chatBusy = false;
+  }
 }
 
 assistantToggle.addEventListener('click', () => {
@@ -402,8 +453,9 @@ assistantClose.addEventListener('click', () => closeAssistant());
 
 assistantForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  askAssistant(assistantInput.value);
+  const question = assistantInput.value;
   assistantInput.value = '';
+  askAssistant(question);
   assistantInput.focus();
 });
 

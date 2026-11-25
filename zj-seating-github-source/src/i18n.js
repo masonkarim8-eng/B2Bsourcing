@@ -5,6 +5,13 @@ const htmlLanguages = { en: 'en', zh: 'zh-CN', es: 'es', de: 'de' };
 
 const ui = {
   en: {
+    'chat.viewModel': 'View {model}',
+    'chat.addToRfq': 'Add {model} to RFQ',
+    'chat.quoteModel': 'Request {model}',
+    'chat.startRfq': 'Start an RFQ',
+    'chat.show': 'Show {category}',
+    'chat.documents': 'Request documents',
+    'chat.typing': 'Ask ZJ is typing',
     'lead.successTitle': 'Inquiry sent',
     'lead.successReference': 'Reference: {reference}',
     'lead.successBody': 'Thank you. Our sales team will reply to {email}. Keep the reference number for any follow-up.',
@@ -47,6 +54,13 @@ const ui = {
     'rfq.close': 'Close RFQ list'
   },
   zh: {
+    'chat.viewModel': '查看 {model}',
+    'chat.addToRfq': '将 {model} 加入询价单',
+    'chat.quoteModel': '询价 {model}',
+    'chat.startRfq': '开始询价',
+    'chat.show': '查看{category}',
+    'chat.documents': '索取文件',
+    'chat.typing': 'Ask ZJ 正在输入',
     'lead.successTitle': '询价已发送',
     'lead.successReference': '参考编号：{reference}',
     'lead.successBody': '谢谢。销售团队将回复至 {email}。后续沟通请保留此参考编号。',
@@ -89,6 +103,13 @@ const ui = {
     'rfq.close': '关闭询价清单'
   },
   es: {
+    'chat.viewModel': 'Ver {model}',
+    'chat.addToRfq': 'Añadir {model} a la RFQ',
+    'chat.quoteModel': 'Solicitar {model}',
+    'chat.startRfq': 'Iniciar una RFQ',
+    'chat.show': 'Ver {category}',
+    'chat.documents': 'Solicitar documentos',
+    'chat.typing': 'Ask ZJ está escribiendo',
     'lead.successTitle': 'Consulta enviada',
     'lead.successReference': 'Referencia: {reference}',
     'lead.successBody': 'Gracias. Nuestro equipo de ventas responderá a {email}. Conserve el número de referencia para cualquier seguimiento.',
@@ -131,6 +152,13 @@ const ui = {
     'rfq.close': 'Cerrar lista de cotización'
   },
   de: {
+    'chat.viewModel': '{model} ansehen',
+    'chat.addToRfq': '{model} zur Anfrage',
+    'chat.quoteModel': '{model} anfragen',
+    'chat.startRfq': 'Anfrage starten',
+    'chat.show': '{category} anzeigen',
+    'chat.documents': 'Dokumente anfordern',
+    'chat.typing': 'Ask ZJ schreibt',
     'lead.successTitle': 'Anfrage gesendet',
     'lead.successReference': 'Referenz: {reference}',
     'lead.successBody': 'Vielen Dank. Unser Vertrieb antwortet an {email}. Bitte bewahren Sie die Referenznummer für Rückfragen auf.',
@@ -357,7 +385,7 @@ export const messages = {
   'Explore sofas': { zh: '探索沙发', es: 'Explorar sofás', de: 'Sofas entdecken' },
   'Quality documents': { zh: '质量文件', es: 'Documentos de calidad', de: 'Qualitätsdokumente' },
   'Ask about a model, MOQ, or lead time…': { zh: '询问型号、起订量或交期…', es: 'Pregunte por modelo, MOQ o plazo…', de: 'Fragen Sie nach Modell, MOQ oder Lieferzeit…' },
-  'Instant catalog guidance · Not a live agent': { zh: '即时目录指引 · 非真人客服', es: 'Orientación instantánea · No es un agente humano', de: 'Sofortige Kataloghilfe · Kein Live-Agent' },
+  'AI assistant · Answers from the ZJ catalog · Sales confirms specs and prices': { zh: 'AI 助手 · 依据 ZJ 产品目录回答 · 规格与价格以销售确认为准', es: 'Asistente de IA · Responde con el catálogo de ZJ · Ventas confirma especificaciones y precios', de: 'KI-Assistent · Antworten aus dem ZJ-Katalog · Spezifikationen und Preise bestätigt der Vertrieb' },
   'Close virtual assistant': { zh: '关闭虚拟助手', es: 'Cerrar asistente virtual', de: 'Virtuellen Assistenten schließen' },
   'Send question': { zh: '发送问题', es: 'Enviar pregunta', de: 'Frage senden' },
   'Ask about products, orders, or the factory': { zh: '咨询产品、订单或工厂', es: 'Pregunte sobre productos, pedidos o fábrica', de: 'Fragen zu Produkten, Aufträgen oder Werk' },
@@ -753,6 +781,13 @@ Object.assign(ui.es, { 'social.count': '{count} publicaciones' });
 Object.assign(ui.de, { 'social.count': '{count} Beiträge' });
 
 Object.assign(messages, {
+  'mesh chairs': zhEsDe('网椅', 'sillas de malla', 'Netzstühle'),
+  'executive chairs': zhEsDe('行政椅', 'sillas ejecutivas', 'Chefsessel'),
+  'visitor chairs': zhEsDe('访客椅', 'sillas de visita', 'Besucherstühle'),
+  'study chairs': zhEsDe('学习椅', 'sillas de estudio', 'Lernstühle'),
+  'task chairs': zhEsDe('办公椅', 'sillas operativas', 'Bürostühle'),
+  'compressed sofas': zhEsDe('压缩沙发', 'sofás comprimidos', 'Kompressionssofas'),
+  'all products': zhEsDe('全部产品', 'todos los productos', 'alle Produkte'),
   'About us': zhEsDe('关于我们', 'Nosotros', 'Über uns'),
   'ABOUT ZJ SEATING': zhEsDe('关于 ZJ SEATING', 'ACERCA DE ZJ SEATING', 'ÜBER ZJ SEATING'),
   'People behind the partnership.': zhEsDe('合作伙伴背后的团队。', 'Las personas detrás de la colaboración.', 'Die Menschen hinter der Partnerschaft.'),

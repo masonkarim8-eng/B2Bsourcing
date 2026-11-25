@@ -11,4 +11,14 @@ binding = "ASSETS"
 name = "SEND_EMAIL"
 destination_address = "masonkarim8@gmail.com"
 
+# Ask ZJ chatbot model (Workers AI)
+[ai]
+binding = "AI"
+
+# Ask ZJ chatbot: 20 messages per minute per visitor IP
+[[ratelimits]]
+name = "CHAT_LIMIT"
+namespace_id = "1001"
+simple = { limit = 20, period = 60 }
+
 # Secret set in Cloudflare, not in this file: TURNSTILE_SECRET
