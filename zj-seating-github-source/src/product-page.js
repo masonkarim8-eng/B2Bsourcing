@@ -8,7 +8,7 @@ import { initI18n, onLanguageChange, translateTree } from './i18n.js';
 import { localizedProductName, localizedPublicDescription } from './product-copy.js';
 import { captureAttribution, productShareLinks } from './sharing.js';
 import { saveLocalLead } from './lead-handoff.js';
-import { leadStatusMessage, resetInquiryCheck, showInquirySuccess } from './lead-status.js';
+import { leadStatusMessage, markInquiryOpened, resetInquiryCheck, showInquirySuccess } from './lead-status.js';
 import { getLanguage, t } from './i18n.js';
 
 initI18n();
@@ -36,6 +36,7 @@ function openQuote(model = '', type = 'Request a quote', notes = '') {
   quoteNotes.value = notes;
   if ([...requestType.options].some((option) => option.value === type)) requestType.value = type;
   formStatus.hidden = true;
+  markInquiryOpened(document.querySelector('#quote-form'));
   if (!quoteDialog.open) quoteDialog.showModal();
 }
 
@@ -43,6 +44,7 @@ const rfq = initRFQ({
   products,
   onSubmit: (items) => openQuote(items.map((item) => item.model).join(', '), 'Request a quote', rfqNotes(items))
 });
+document.querySelectorAll('[data-rfq-open]').forEach((button) => button.addEventListener('click', () => rfq.openReview()));
 
 function productUrl(model) {
   return `./product.html?model=${encodeURIComponent(model)}`;

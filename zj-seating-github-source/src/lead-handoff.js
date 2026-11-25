@@ -142,6 +142,7 @@ export async function saveLocalLead(form, language = 'en') {
   if (!validation.valid) return { sent: false, error: 'invalidPOFile' };
   if (!hasFile) data.delete('poTemplate');
   data.set('language', language);
+  data.set('formStartedAt', String(form.dataset.openedAt || ''));
   data.set('pageUrl', window.location.href.split('#')[0]);
   if (attribution) data.set('attribution', JSON.stringify(attribution).slice(0, 1000));
 

@@ -1,3 +1,4 @@
+import dictionary from './zj-seating-i18n.json';
 const STORAGE_KEY = 'zj-site-language-v1';
 const supported = ['en', 'zh', 'es', 'de'];
 const nativeNames = { en: 'English', zh: '简体中文', es: 'Español', de: 'Deutsch' };
@@ -579,6 +580,7 @@ function applyLanguage() {
   document.documentElement.lang = htmlLanguages[language];
   const select = document.querySelector('#language-select');
   if (select) select.value = language;
+  document.querySelectorAll('[data-set-lang]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.setLang === language)));
   translateTree(document);
   listeners.forEach((listener) => listener(language));
 }
@@ -595,6 +597,56 @@ export function setLanguage(value, updateUrl = true) {
   applyLanguage();
 }
 
+
+// B2 redesign: Gemini's dictionary (EN, ZH, ES, DE used; FR, PT, IT kept for later) plus new page copy.
+function registerDictionary() {
+  const at = (lang, path) => path.reduce((node, key) => node?.[key], dictionary[lang]);
+  const walk = (node, path) => Object.entries(node).forEach(([key, value]) => {
+    if (value && typeof value === 'object') return walk(value, [...path, key]);
+    const entry = {};
+    ['zh', 'es', 'de'].forEach((lang) => { const text = at(lang, [...path, key]); if (text) entry[lang] = text; });
+    messages[value] = { ...(messages[value] || {}), ...entry };
+  });
+  walk(dictionary.en, []);
+  ['en', 'zh', 'es', 'de'].forEach((lang) => {
+    ui[lang]['rfq.add'] = dictionary[lang].card.addRfq;
+    ui[lang]['rfq.added'] = dictionary[lang].card.inRfq;
+  });
+}
+registerDictionary();
+Object.assign(messages, {
+  'Ask a question': { zh: '在线咨询', es: 'Hacer una pregunta', de: 'Frage stellen' },
+  'OEM / ODM seating manufacturer': { zh: 'OEM / ODM 座椅制造商', es: 'Fabricante de asientos OEM / ODM', de: 'OEM / ODM-Sitzmöbelhersteller' },
+  'Contract seating, made in Anji, Zhejiang.': { zh: '商用座椅，产自浙江安吉。', es: 'Asientos para contract, fabricados en Anji, Zhejiang.', de: 'Objektsitzmöbel, gefertigt in Anji, Zhejiang.' },
+  'Office chairs, gaming chairs and compressed sofas for importers, retail chains, contract dealers and private-label brands. From first sample to full container.': { zh: '为进口商、零售连锁、工程经销商及自有品牌提供办公椅、电竞椅与压缩沙发。从首件打样到整柜出货。', es: 'Sillas de oficina, sillas gaming y sofás comprimidos para importadores, cadenas minoristas, distribuidores contract y marcas propias. De la primera muestra al contenedor completo.', de: 'Bürostühle, Gaming-Stühle und Kompressionssofas für Importeure, Handelsketten, Objekthändler und Eigenmarken. Vom ersten Muster bis zum vollen Container.' },
+  'View the catalog →': { zh: '查看产品目录 →', es: 'Ver el catálogo →', de: 'Zum Katalog →' },
+  'Start an RFQ →': { zh: '开始询价 →', es: 'Iniciar una cotización →', de: 'Anfrage starten →' },
+  'Production base · Anji, Zhejiang · Est. 2009': { zh: '生产基地 · 浙江安吉 · 始于 2009', es: 'Planta de producción · Anji, Zhejiang · Desde 2009', de: 'Produktionswerk · Anji, Zhejiang · Seit 2009' },
+  'Seating R&D, production and sales': { zh: '座椅研发、生产与销售', es: 'I+D, producción y venta de asientos', de: 'Entwicklung, Produktion und Vertrieb' },
+  'Chairs and compressed sofas': { zh: '座椅与压缩沙发', es: 'Sillas y sofás comprimidos', de: 'Stühle und Kompressionssofas' },
+  'New models and custom briefs': { zh: '新品开发与定制需求', es: 'Nuevos modelos y proyectos a medida', de: 'Neue Modelle und Sonderanfertigungen' },
+  'Export packing and container loading': { zh: '出口包装与装柜', es: 'Embalaje de exportación y carga de contenedores', de: 'Exportverpackung und Containerverladung' },
+  'Specifications from current product sheets. Dealer models are shared after a buyer review.': { zh: '规格参数来自现行产品资料。大客户专供型号在买家审核后提供。', es: 'Especificaciones según las fichas de producto vigentes. Los modelos para distribuidores se comparten tras revisar al comprador.', de: 'Daten aus den aktuellen Produktblättern. Händlermodelle werden nach einer Käuferprüfung freigegeben.' },
+  'Start from a catalog frame, a reference sample or a new brief. Materials, colors, packaging and branding are set around your market.': { zh: '可基于现有型号、参考样品或全新需求启动项目。材质、颜色、包装与品牌均按您的市场定制。', es: 'Parta de un modelo del catálogo, una muestra de referencia o un nuevo brief. Materiales, colores, embalaje y marca se ajustan a su mercado.', de: 'Starten Sie mit einem Katalogmodell, einem Referenzmuster oder einem neuen Briefing. Materialien, Farben, Verpackung und Branding richten sich nach Ihrem Markt.' },
+  'Discuss a project →': { zh: '洽谈项目 →', es: 'Hablar de un proyecto →', de: 'Projekt besprechen →' },
+  'Send a brief to R&D →': { zh: '向研发团队提交需求 →', es: 'Enviar un brief a I+D →', de: 'Briefing an F&E senden →' },
+  'Seating R&D, production and sales in one company since 2009, with three production bases and exports to more than 60 countries and regions.': { zh: '自 2009 年起集座椅研发、生产与销售于一体，拥有三大生产基地，出口 60 多个国家和地区。', es: 'I+D, producción y venta de asientos en una sola empresa desde 2009, con tres plantas de producción y exportaciones a más de 60 países y regiones.', de: 'Entwicklung, Produktion und Vertrieb von Sitzmöbeln in einem Unternehmen seit 2009, mit drei Produktionswerken und Export in über 60 Länder und Regionen.' },
+  'Production and quality checkpoints': { zh: '生产与质检节点', es: 'Producción y controles de calidad', de: 'Produktion und Qualitätsprüfpunkte' },
+  'Foam and upholstery production': { zh: '海绵与软包生产', es: 'Producción de espuma y tapicería', de: 'Schaum- und Polsterfertigung' },
+  'Compression and export packing': { zh: '压缩与出口包装', es: 'Compresión y embalaje de exportación', de: 'Kompression und Exportverpackung' },
+  'Certificates and test reports are sent per model and destination market.': { zh: '证书与测试报告按型号及目标市场提供。', es: 'Los certificados e informes de ensayo se envían por modelo y mercado de destino.', de: 'Zertifikate und Prüfberichte erhalten Sie je Modell und Zielmarkt.' },
+  'Write to the team that owns your question. Replies come by email.': { zh: '请直接联系负责相关事项的团队，我们将通过邮件回复。', es: 'Escriba al equipo responsable de su consulta. Respondemos por correo.', de: 'Schreiben Sie direkt an das zuständige Team. Die Antwort kommt per E-Mail.' },
+  'Quotes, samples, orders and lead times': { zh: '报价、样品、订单与交期', es: 'Cotizaciones, muestras, pedidos y plazos', de: 'Angebote, Muster, Aufträge und Lieferzeiten' },
+  'Custom designs, materials and new product briefs': { zh: '定制设计、材质与新品需求', es: 'Diseños a medida, materiales y nuevos productos', de: 'Sonderdesigns, Materialien und neue Produktideen' },
+  'Certificates, test reports and inspections': { zh: '证书、测试报告与验货', es: 'Certificados, informes de ensayo e inspecciones', de: 'Zertifikate, Prüfberichte und Inspektionen' },
+  'Send an inquiry →': { zh: '发送询价 →', es: 'Enviar consulta →', de: 'Anfrage senden →' },
+  'Send a brief →': { zh: '提交需求 →', es: 'Enviar brief →', de: 'Briefing senden →' },
+  'Request documents →': { zh: '索取文件 →', es: 'Solicitar documentos →', de: 'Dokumente anfordern →' },
+  'Concept by B2B Sourcing': { zh: '概念网站 · B2B Sourcing 制作', es: 'Concepto de B2B Sourcing', de: 'Konzept von B2B Sourcing' },
+  'Specifications on request': { zh: '规格参数按需提供', es: 'Especificaciones bajo pedido', de: 'Daten auf Anfrage' },
+  'Send': { zh: '发送', es: 'Enviar', de: 'Senden' },
+});
+
 export function initI18n() {
   if (initialized) return;
   initialized = true;
@@ -603,6 +655,7 @@ export function initI18n() {
   try { saved = window.localStorage.getItem(STORAGE_KEY) || ''; } catch {}
   language = requested ? normalizeLanguage(requested) : saved ? normalizeLanguage(saved) : normalizeLanguage(navigator.language);
   injectLanguagePicker();
+  document.querySelectorAll('[data-set-lang]').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.setLang)));
   applyLanguage();
 }
 

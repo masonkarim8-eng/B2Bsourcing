@@ -1,0 +1,623 @@
+{
+  "_meta": {
+    "description": "ZJ Seating Technology B2B OEM/ODM i18n dictionary for B2 + Direction 2 redesign",
+    "languages": [
+      { "code": "en", "label": "EN", "name": "English", "regions": "US, UK, Canada, Global Trade" },
+      { "code": "zh", "label": "中文", "name": "简体中文", "regions": "Mainland China" },
+      { "code": "es", "label": "ES", "name": "Español", "regions": "Spain, Mexico, Hispanic LatAm" },
+      { "code": "de", "label": "DE", "name": "Deutsch", "regions": "Germany, Austria, Switzerland" },
+      { "code": "fr", "label": "FR", "name": "Français", "regions": "France, Belgium, Switzerland, Quebec" },
+      { "code": "pt", "label": "PT", "name": "Português", "regions": "Brazil, Portugal" },
+      { "code": "it", "label": "IT", "name": "Italiano", "regions": "Italy, Southern Europe" }
+    ]
+  },
+  "en": {
+    "nav": {
+      "catalog": "Catalog",
+      "oem": "OEM / ODM",
+      "manufacturing": "Manufacturing",
+      "standards": "Standards",
+      "contact": "Contact",
+      "clientAccount": "Client Account",
+      "rfq": "RFQ"
+    },
+    "hero": {
+      "locationTag": "Production Base 01 — Anji, Zhejiang · Est. 2009"
+    },
+    "filters": {
+      "all": "All",
+      "mesh": "Mesh",
+      "executive": "Executive",
+      "task": "Task",
+      "visitor": "Visitor",
+      "study": "Study",
+      "sofa": "Compressed Sofas",
+      "quotePoUpload": "Quote & PO Upload →"
+    },
+    "card": {
+      "addRfq": "+ RFQ",
+      "inRfq": "✓ In RFQ",
+      "dealerSpec": "Dealer Spec",
+      "compressedPack": "Compressed Pack",
+      "viewSpecs": "View Specifications →"
+    },
+    "manufacturing": {
+      "heading": "Manufacturing & OEM / ODM",
+      "stats": {
+        "established": "Est. 2009",
+        "bases": "3 Production Bases",
+        "rd": "4 R&D Departments",
+        "markets": "60+ Export Markets"
+      },
+      "steps": {
+        "define": { "title": "01 Define", "desc": "Model, materials, target market, quantity, and export packaging." },
+        "sample": { "title": "02 Sample", "desc": "Confirm finish, components, dimensions, and test requirements." },
+        "produce": { "title": "03 Produce", "desc": "Move into mass production with agreed inline quality checkpoints." },
+        "deliver": { "title": "04 Deliver", "desc": "Coordinate pre-shipment inspection, container loading, and export dispatch." }
+      }
+    },
+    "standards": {
+      "heading": "Quality & Compliance",
+      "requestCert": "Request certificate PDF →",
+      "iso9001": "Quality Management System",
+      "iso14001": "Environmental Management System",
+      "bifma": "General-Purpose Office Chair Testing (North America)",
+      "en1335": "Office Work Chair Requirements (Europe)"
+    },
+    "departments": {
+      "exportSales": "Export Sales",
+      "oemEngineering": "OEM / ODM Engineering",
+      "qaCompliance": "Quality & Compliance"
+    },
+    "shortlist": {
+      "title": "Product Shortlist",
+      "compareNow": "Compare Now",
+      "requestQuote": "Request Shortlist Quote",
+      "clear": "Clear"
+    },
+    "quoteModal": {
+      "heading": "Quote & PO Upload",
+      "requestType": "Request Type",
+      "typeQuote": "Request a quote",
+      "typeSample": "Order a sample",
+      "typeCert": "Request certificates / test reports",
+      "models": "Selected Models (RFQ List)",
+      "name": "Full Name",
+      "company": "Company",
+      "email": "Work Email",
+      "quantity": "Estimated Quantity (Units)",
+      "destination": "Destination Country / Port",
+      "poLabel": "PO Template (Optional · PDF, DOCX, XLSX, CSV, TXT · up to 10 MB)",
+      "notes": "Specifications, Finishes & Target Timing",
+      "submit": "Send Inquiry"
+    },
+    "footer": {
+      "company": "Zhejiang Seating Technology Co., Ltd. · Anji, Zhejiang, China",
+      "standardsSummary": "ISO 9001 · ISO 14001 · ANSI/BIFMA X5.1 · EN 1335",
+      "employeePortal": "Employee Portal",
+      "managerApprovals": "Manager Approvals"
+    }
+  },
+  "zh": {
+    "nav": {
+      "catalog": "产品目录",
+      "oem": "OEM / ODM 定制",
+      "manufacturing": "制造实力",
+      "standards": "认证标准",
+      "contact": "联系我们",
+      "clientAccount": "客户门户",
+      "rfq": "询价单"
+    },
+    "hero": {
+      "locationTag": "第一生产基地 — 浙江安吉 · 始于 2009"
+    },
+    "filters": {
+      "all": "全部产品",
+      "mesh": "网布椅",
+      "executive": "行政大班椅",
+      "task": "办公职员椅",
+      "visitor": "访客 / 会议椅",
+      "study": "学习 / 居家椅",
+      "sofa": "压缩沙发",
+      "quotePoUpload": "获取报价 / 上传 PO →"
+    },
+    "card": {
+      "addRfq": "+ 加入询价",
+      "inRfq": "✓ 已加入询价",
+      "dealerSpec": "大客户专供规格",
+      "compressedPack": "真空压缩包装",
+      "viewSpecs": "查看规格参数 →"
+    },
+    "manufacturing": {
+      "heading": "制造实力与 OEM / ODM 流程",
+      "stats": {
+        "established": "成立于 2009 年",
+        "bases": "3 大生产基地",
+        "rd": "4 个研发部门",
+        "markets": "出口 60+ 国家和地区"
+      },
+      "steps": {
+        "define": { "title": "01 需求确认", "desc": "明确型号、材质、目标市场、采购数量及出口包装方案。" },
+        "sample": { "title": "02 打样确认", "desc": "核对外观工艺、核心配件、尺寸参数及测试要求。" },
+        "produce": { "title": "03 批量生产", "desc": "按约定质检节点推进标准化流水线生产。" },
+        "deliver": { "title": "04 验货出运", "desc": "配合出货前检验、高柜装柜优化及出口报关物流。" }
+      }
+    },
+    "standards": {
+      "heading": "质量体系与测试标准",
+      "requestCert": "索取证书 PDF →",
+      "iso9001": "质量管理体系认证",
+      "iso14001": "环境管理体系认证",
+      "bifma": "北美通用办公椅测试标准",
+      "en1335": "欧洲办公工作椅技术规范"
+    },
+    "departments": {
+      "exportSales": "外贸业务部",
+      "oemEngineering": "OEM / ODM 工程研发部",
+      "qaCompliance": "品质与合规认证部"
+    },
+    "shortlist": {
+      "title": "产品对比清单",
+      "compareNow": "立即对比",
+      "requestQuote": "清单批量询价",
+      "clear": "清空"
+    },
+    "quoteModal": {
+      "heading": "项目询价与 PO 上传",
+      "requestType": "咨询类型",
+      "typeQuote": "批量报价咨询",
+      "typeSample": "样品定制申请",
+      "typeCert": "索取认证证书 / 测试报告",
+      "models": "已选型号（询价清单）",
+      "name": "姓名",
+      "company": "公司名称",
+      "email": "工作邮箱",
+      "quantity": "预计采购数量（件）",
+      "destination": "目的国 / 目的港",
+      "poLabel": "采购单模板（可选 · 支持 PDF / Word / Excel / CSV / TXT · 10 MB 以内）",
+      "notes": "材质、颜色、定制要求及交期说明",
+      "submit": "提交询价"
+    },
+    "footer": {
+      "company": "浙江座椅科技有限公司 · 中国浙江安吉",
+      "standardsSummary": "ISO 9001 · ISO 14001 · ANSI/BIFMA X5.1 · EN 1335",
+      "employeePortal": "员工入口",
+      "managerApprovals": "管理审批"
+    }
+  },
+  "es": {
+    "nav": {
+      "catalog": "Catálogo",
+      "oem": "OEM / ODM",
+      "manufacturing": "Fabricación",
+      "standards": "Normativas",
+      "contact": "Contacto",
+      "clientAccount": "Cuenta cliente",
+      "rfq": "Cotización"
+    },
+    "hero": {
+      "locationTag": "Planta de producción 01 — Anji, Zhejiang · Desde 2009"
+    },
+    "filters": {
+      "all": "Todos",
+      "mesh": "Malla",
+      "executive": "Ejecutivas",
+      "task": "Operativas",
+      "visitor": "Visitas",
+      "study": "Estudio",
+      "sofa": "Sofás comprimidos",
+      "quotePoUpload": "Cotizar y subir PO →"
+    },
+    "card": {
+      "addRfq": "+ Cotizar",
+      "inRfq": "✓ En lista",
+      "dealerSpec": "Ficha bajo pedido",
+      "compressedPack": "Empaque comprimido",
+      "viewSpecs": "Ver especificaciones →"
+    },
+    "manufacturing": {
+      "heading": "Fabricación y proceso OEM / ODM",
+      "stats": {
+        "established": "Desde 2009",
+        "bases": "3 plantas de producción",
+        "rd": "4 departamentos de I+D",
+        "markets": "60+ mercados de exportación"
+      },
+      "steps": {
+        "define": { "title": "01 Definir", "desc": "Modelo, materiales, mercado de destino, volumen y embalaje de exportación." },
+        "sample": { "title": "02 Muestra", "desc": "Validación de acabados, componentes, medidas y ensayos requeridos." },
+        "produce": { "title": "03 Producir", "desc": "Fabricación en serie con puntos de control de calidad acordados." },
+        "deliver": { "title": "04 Entregar", "desc": "Inspección previa al embarque, carga en contenedor y logística." }
+      }
+    },
+    "standards": {
+      "heading": "Calidad y cumplimiento",
+      "requestCert": "Solicitar certificado PDF →",
+      "iso9001": "Sistema de gestión de calidad",
+      "iso14001": "Sistema de gestión ambiental",
+      "bifma": "Ensayos para sillas de oficina (Norteamérica)",
+      "en1335": "Requisitos para sillas de trabajo (Europa)"
+    },
+    "departments": {
+      "exportSales": "Ventas de exportación",
+      "oemEngineering": "Ingeniería OEM / ODM",
+      "qaCompliance": "Calidad y certificaciones"
+    },
+    "shortlist": {
+      "title": "Selección para comparar",
+      "compareNow": "Comparar ahora",
+      "requestQuote": "Cotizar selección",
+      "clear": "Limpiar"
+    },
+    "quoteModal": {
+      "heading": "Solicitud de cotización y envío de PO",
+      "requestType": "Tipo de solicitud",
+      "typeQuote": "Solicitar cotización",
+      "typeSample": "Solicitar muestra",
+      "typeCert": "Solicitar certificados / informes de ensayo",
+      "models": "Modelos seleccionados",
+      "name": "Nombre completo",
+      "company": "Empresa",
+      "email": "Correo corporativo",
+      "quantity": "Cantidad estimada (unidades)",
+      "destination": "País / puerto de destino",
+      "poLabel": "Plantilla de PO (Opcional · PDF, DOCX, XLSX, CSV, TXT · máx. 10 MB)",
+      "notes": "Especificaciones, acabados y plazo objetivo",
+      "submit": "Enviar solicitud"
+    },
+    "footer": {
+      "company": "Zhejiang Seating Technology Co., Ltd. · Anji, Zhejiang, China",
+      "standardsSummary": "ISO 9001 · ISO 14001 · ANSI/BIFMA X5.1 · EN 1335",
+      "employeePortal": "Portal de empleados",
+      "managerApprovals": "Aprobaciones"
+    }
+  },
+  "de": {
+    "nav": {
+      "catalog": "Katalog",
+      "oem": "OEM / ODM",
+      "manufacturing": "Fertigung",
+      "standards": "Normen",
+      "contact": "Kontakt",
+      "clientAccount": "Kundenkonto",
+      "rfq": "Anfrage"
+    },
+    "hero": {
+      "locationTag": "Werk 01 — Anji, Zhejiang · Seit 2009"
+    },
+    "filters": {
+      "all": "Alle",
+      "mesh": "Netzgewebe",
+      "executive": "Chefsessel",
+      "task": "Drehstühle",
+      "visitor": "Besucherstühle",
+      "study": "Arbeitsstühle",
+      "sofa": "Komprimierte Sofas",
+      "quotePoUpload": "Angebot & PO-Upload →"
+    },
+    "card": {
+      "addRfq": "+ Anfrage",
+      "inRfq": "✓ Gemerkt",
+      "dealerSpec": "Händler-Spezifikation",
+      "compressedPack": "Vakuumverpackt",
+      "viewSpecs": "Technische Daten →"
+    },
+    "manufacturing": {
+      "heading": "Fertigung & OEM / ODM-Prozess",
+      "stats": {
+        "established": "Gegründet 2009",
+        "bases": "3 Produktionswerke",
+        "rd": "4 F&E-Abteilungen",
+        "markets": "60+ Exportmärkte"
+      },
+      "steps": {
+        "define": { "title": "01 Spezifizieren", "desc": "Modell, Materialien, Zielmarkt, Stückzahl und Exportverpackung." },
+        "sample": { "title": "02 Bemusterung", "desc": "Freigabe von Oberfläche, Mechanik, Maßen und Prüfanforderungen." },
+        "produce": { "title": "03 Fertigung", "desc": "Serienproduktion entlang definierter Qualitätsprüfpunkte." },
+        "deliver": { "title": "04 Versand", "desc": "Endabnahme, Containerverladung und Exportabwicklung." }
+      }
+    },
+    "standards": {
+      "heading": "Qualität & Normen",
+      "requestCert": "Zertifikat-PDF anfordern →",
+      "iso9001": "Qualitätsmanagementsystem",
+      "iso14001": "Umweltmanagementsystem",
+      "bifma": "Prüfstandard für Bürostühle (Nordamerika)",
+      "en1335": "Anforderungen an Büro-Arbeitsstühle (Europa)"
+    },
+    "departments": {
+      "exportSales": "Exportvertrieb",
+      "oemEngineering": "OEM / ODM-Entwicklung",
+      "qaCompliance": "Qualität & Zulassung"
+    },
+    "shortlist": {
+      "title": "Vergleichsliste",
+      "compareNow": "Jetzt vergleichen",
+      "requestQuote": "Liste anfragen",
+      "clear": "Leeren"
+    },
+    "quoteModal": {
+      "heading": "Angebotsanfrage & PO-Upload",
+      "requestType": "Anfrageart",
+      "typeQuote": "Angebot anfordern",
+      "typeSample": "Muster bestellen",
+      "typeCert": "Zertifikate / Prüfberichte anfordern",
+      "models": "Ausgewählte Modelle",
+      "name": "Vor- und Nachname",
+      "company": "Unternehmen",
+      "email": "Geschäftliche E-Mail",
+      "quantity": "Geplante Menge (Stück)",
+      "destination": "Zielland / Zielhafen",
+      "poLabel": "Bestellvorlage / PO (Optional · PDF, DOCX, XLSX, CSV, TXT · max. 10 MB)",
+      "notes": "Ausführung, Farben, Normen oder Zieltermin",
+      "submit": "Anfrage senden"
+    },
+    "footer": {
+      "company": "Zhejiang Seating Technology Co., Ltd. · Anji, Zhejiang, China",
+      "standardsSummary": "ISO 9001 · ISO 14001 · ANSI/BIFMA X5.1 · EN 1335",
+      "employeePortal": "Mitarbeiterportal",
+      "managerApprovals": "Freigaben"
+    }
+  },
+  "fr": {
+    "nav": {
+      "catalog": "Catalogue",
+      "oem": "OEM / ODM",
+      "manufacturing": "Production",
+      "standards": "Normes",
+      "contact": "Contact",
+      "clientAccount": "Espace client",
+      "rfq": "Devis"
+    },
+    "hero": {
+      "locationTag": "Site de production 01 — Anji, Zhejiang · Depuis 2009"
+    },
+    "filters": {
+      "all": "Tous",
+      "mesh": "Maille",
+      "executive": "Direction",
+      "task": "Bureautique",
+      "visitor": "Visiteur",
+      "study": "Étude",
+      "sofa": "Canapés compressés",
+      "quotePoUpload": "Devis & envoi de PO →"
+    },
+    "card": {
+      "addRfq": "+ Devis",
+      "inRfq": "✓ Ajouté",
+      "dealerSpec": "Fiche distributeur",
+      "compressedPack": "Emballage compressé",
+      "viewSpecs": "Voir la fiche technique →"
+    },
+    "manufacturing": {
+      "heading": "Production & processus OEM / ODM",
+      "stats": {
+        "established": "Fondée en 2009",
+        "bases": "3 sites de production",
+        "rd": "4 pôles R&D",
+        "markets": "60+ marchés export"
+      },
+      "steps": {
+        "define": { "title": "01 Définir", "desc": "Modèle, matériaux, marché cible, volume et conditionnement export." },
+        "sample": { "title": "02 Échantillon", "desc": "Validation des finitions, mécanismes, dimensions et essais." },
+        "produce": { "title": "03 Produire", "desc": "Lancement en série avec contrôles qualité convenus." },
+        "deliver": { "title": "04 Livrer", "desc": "Inspection avant expédition, chargement conteneur et logistique." }
+      }
+    },
+    "standards": {
+      "heading": "Qualité & conformité",
+      "requestCert": "Demander le certificat PDF →",
+      "iso9001": "Système de management de la qualité",
+      "iso14001": "Système de management environnemental",
+      "bifma": "Tests des sièges de bureau (Amérique du Nord)",
+      "en1335": "Exigences pour sièges de travail (Europe)"
+    },
+    "departments": {
+      "exportSales": "Ventes export",
+      "oemEngineering": "Ingénierie OEM / ODM",
+      "qaCompliance": "Qualité & conformité"
+    },
+    "shortlist": {
+      "title": "Sélection à comparer",
+      "compareNow": "Comparer",
+      "requestQuote": "Demander un devis",
+      "clear": "Effacer"
+    },
+    "quoteModal": {
+      "heading": "Demande de devis & import PO",
+      "requestType": "Type de demande",
+      "typeQuote": "Demander un devis",
+      "typeSample": "Commander un échantillon",
+      "typeCert": "Demander des certificats / rapports d'essai",
+      "models": "Modèles sélectionnés",
+      "name": "Nom complet",
+      "company": "Société",
+      "email": "E-mail professionnel",
+      "quantity": "Quantité estimée (unités)",
+      "destination": "Pays / port de destination",
+      "poLabel": "Bon de commande / PO (Optionnel · PDF, DOCX, XLSX, CSV, TXT · 10 Mo max.)",
+      "notes": "Spécifications, finitions et calendrier souhaité",
+      "submit": "Envoyer la demande"
+    },
+    "footer": {
+      "company": "Zhejiang Seating Technology Co., Ltd. · Anji, Zhejiang, Chine",
+      "standardsSummary": "ISO 9001 · ISO 14001 · ANSI/BIFMA X5.1 · EN 1335",
+      "employeePortal": "Portail employés",
+      "managerApprovals": "Validations"
+    }
+  },
+  "pt": {
+    "nav": {
+      "catalog": "Catálogo",
+      "oem": "OEM / ODM",
+      "manufacturing": "Fábrica",
+      "standards": "Normas",
+      "contact": "Contato",
+      "clientAccount": "Conta cliente",
+      "rfq": "Cotação"
+    },
+    "hero": {
+      "locationTag": "Unidade Fabril 01 — Anji, Zhejiang · Desde 2009"
+    },
+    "filters": {
+      "all": "Todos",
+      "mesh": "Tela Mesh",
+      "executive": "Executiva",
+      "task": "Operacional",
+      "visitor": "Interlocutor",
+      "study": "Estudo",
+      "sofa": "Sofás comprimidos",
+      "quotePoUpload": "Cotação e envio de PO →"
+    },
+    "card": {
+      "addRfq": "+ Cotação",
+      "inRfq": "✓ Na lista",
+      "dealerSpec": "Ficha sob consulta",
+      "compressedPack": "Embalagem a vácuo",
+      "viewSpecs": "Ver especificações →"
+    },
+    "manufacturing": {
+      "heading": "Fabricação e fluxo OEM / ODM",
+      "stats": {
+        "established": "Desde 2009",
+        "bases": "3 plantas industriais",
+        "rd": "4 equipes de P&D",
+        "markets": "60+ países atendidos"
+      },
+      "steps": {
+        "define": { "title": "01 Definir", "desc": "Modelo, materiais, mercado de destino, volume e embalagem de exportação." },
+        "sample": { "title": "02 Amostra", "desc": "Aprovação de acabamento, componentes, medidas e requisitos de teste." },
+        "produce": { "title": "03 Produzir", "desc": "Produção em escala com inspeções de qualidade definidas." },
+        "deliver": { "title": "04 Embarcar", "desc": "Inspeção pré-embarque, carregamento em contêiner e logística." }
+      }
+    },
+    "standards": {
+      "heading": "Qualidade e certificações",
+      "requestCert": "Solicitar certificado PDF →",
+      "iso9001": "Sistema de Gestão da Qualidade",
+      "iso14001": "Sistema de Gestão Ambiental",
+      "bifma": "Ensaios para cadeiras corporativas (América do Norte)",
+      "en1335": "Requisitos para cadeiras de escritório (Europa)"
+    },
+    "departments": {
+      "exportSales": "Vendas de Exportação",
+      "oemEngineering": "Engenharia OEM / ODM",
+      "qaCompliance": "Qualidade e Certificações"
+    },
+    "shortlist": {
+      "title": "Lista de comparação",
+      "compareNow": "Comparar agora",
+      "requestQuote": "Cotar selecionados",
+      "clear": "Limpar"
+    },
+    "quoteModal": {
+      "heading": "Solicitar cotação e enviar PO",
+      "requestType": "Tipo de solicitação",
+      "typeQuote": "Solicitar cotação",
+      "typeSample": "Solicitar amostra",
+      "typeCert": "Solicitar certificados / laudos de teste",
+      "models": "Modelos selecionados",
+      "name": "Nome completo",
+      "company": "Empresa",
+      "email": "E-mail corporativo",
+      "quantity": "Quantidade estimada (unidades)",
+      "destination": "País / porto de destino",
+      "poLabel": "Modelo de PO (Opcional · PDF, DOCX, XLSX, CSV, TXT · até 10 MB)",
+      "notes": "Especificações, acabamentos e prazo desejado",
+      "submit": "Enviar solicitação"
+    },
+    "footer": {
+      "company": "Zhejiang Seating Technology Co., Ltd. · Anji, Zhejiang, China",
+      "standardsSummary": "ISO 9001 · ISO 14001 · ANSI/BIFMA X5.1 · EN 1335",
+      "employeePortal": "Portal do colaborador",
+      "managerApprovals": "Aprovações"
+    }
+  },
+  "it": {
+    "nav": {
+      "catalog": "Catalogo",
+      "oem": "OEM / ODM",
+      "manufacturing": "Produzione",
+      "standards": "Normative",
+      "contact": "Contatti",
+      "clientAccount": "Area clienti",
+      "rfq": "Preventivo"
+    },
+    "hero": {
+      "locationTag": "Stabilimento 01 — Anji, Zhejiang · Dal 2009"
+    },
+    "filters": {
+      "all": "Tutti",
+      "mesh": "Rete",
+      "executive": "Direzionali",
+      "task": "Operative",
+      "visitor": "Attesa / Riunione",
+      "study": "Studio",
+      "sofa": "Divani compressi",
+      "quotePoUpload": "Preventivo e upload PO →"
+    },
+    "card": {
+      "addRfq": "+ Preventivo",
+      "inRfq": "✓ In lista",
+      "dealerSpec": "Scheda su richiesta",
+      "compressedPack": "Imballo sottovuoto",
+      "viewSpecs": "Scheda tecnica →"
+    },
+    "manufacturing": {
+      "heading": "Produzione e processo OEM / ODM",
+      "stats": {
+        "established": "Dal 2009",
+        "bases": "3 stabilimenti",
+        "rd": "4 reparti R&D",
+        "markets": "60+ mercati export"
+      },
+      "steps": {
+        "define": { "title": "01 Definizione", "desc": "Modello, materiali, mercato di destinazione, volumi e imballaggio export." },
+        "sample": { "title": "02 Campionatura", "desc": "Verifica finiture, componenti, dimensioni e requisiti di test." },
+        "produce": { "title": "03 Produzione", "desc": "Produzione in serie con controlli qualità concordati." },
+        "deliver": { "title": "04 Spedizione", "desc": "Ispezione pre-imbarco, carico container e logistica export." }
+      }
+    },
+    "standards": {
+      "heading": "Qualità e certificazioni",
+      "requestCert": "Richiedi certificato PDF →",
+      "iso9001": "Sistema di gestione qualità",
+      "iso14001": "Sistema di gestione ambientale",
+      "bifma": "Test sedute ufficio (Nord America)",
+      "en1335": "Requisiti sedute da lavoro (Europa)"
+    },
+    "departments": {
+      "exportSales": "Ufficio Export",
+      "oemEngineering": "Ingegneria OEM / ODM",
+      "qaCompliance": "Qualità e Certificazioni"
+    },
+    "shortlist": {
+      "title": "Selezione confronto",
+      "compareNow": "Confronta ora",
+      "requestQuote": "Richiedi preventivo",
+      "clear": "Svuota"
+    },
+    "quoteModal": {
+      "heading": "Richiesta preventivo e invio PO",
+      "requestType": "Tipo di richiesta",
+      "typeQuote": "Richiedi preventivo",
+      "typeSample": "Ordina un campione",
+      "typeCert": "Richiedi certificati / rapporti di prova",
+      "models": "Modelli selezionati",
+      "name": "Nome e cognome",
+      "company": "Azienda",
+      "email": "Email aziendale",
+      "quantity": "Quantità stimata (pezzi)",
+      "destination": "Paese / porto di destinazione",
+      "poLabel": "Modello PO (Opzionale · PDF, DOCX, XLSX, CSV, TXT · max 10 MB)",
+      "notes": "Specifiche, finiture e tempistiche richieste",
+      "submit": "Invia richiesta"
+    },
+    "footer": {
+      "company": "Zhejiang Seating Technology Co., Ltd. · Anji, Zhejiang, Cina",
+      "standardsSummary": "ISO 9001 · ISO 14001 · ANSI/BIFMA X5.1 · EN 1335",
+      "employeePortal": "Portale dipendenti",
+      "managerApprovals": "Approvazioni"
+    }
+  }
+}

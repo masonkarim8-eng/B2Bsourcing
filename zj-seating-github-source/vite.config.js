@@ -1,7 +1,26 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'node:path';
+import { resolve, basename } from 'node:path';
+import { publicProducts } from './src/public-products.js';
+import { productCardHtml } from './src/catalog-card.js';
+
+// Writes the catalog cards into index.html at build time, so the catalog is in
+// the static HTML for search engines and first paint. JS then only filters it.
+function staticCatalog() {
+  return {
+    name: 'zj-static-catalog',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html, ctx) {
+        if (!ctx.filename.endsWith('index.html') || !html.includes('<!--STATIC_CATALOG-->')) return html;
+        const cards = publicProducts.map((p) => productCardHtml(p, `./assets/${basename(new URL(p.image).pathname)}`)).join('\n');
+        return html.replace('<!--STATIC_CATALOG-->', cards).replace('<!--CATALOG_COUNT-->', `${publicProducts.length} models`);
+      }
+    }
+  };
+}
 
 export default defineConfig({
+  plugins: [staticCatalog()],
   build: {
     rollupOptions: {
       input: {

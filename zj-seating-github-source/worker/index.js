@@ -81,8 +81,14 @@ async function handleInquiry(request, env) {
   const data = await request.formData();
   if (clean(data.get('website'))) return json({ ok: true, reference: 'RFQ-RECEIVED' }); // honeypot
 
-  const token = clean(data.get('cf-turnstile-response'), 4096);
-  if (!(await verifyTurnstile(token, request, env))) return json({ ok: false, error: 'check' }, 400);
+  // Spam protection without third-party scripts (works in mainland China):
+  // hidden honeypot field above, a minimum fill time, and a per-visitor rate limit.
+  const startedAt = Number(data.get('formStartedAt') || 0);
+  if (startedAt && Date.now() - startedAt < 3000) return json({ ok: true, reference: 'RFQ-RECEIVED' });
+  if (env.INQUIRY_LIMIT) {
+    const { success } = await env.INQUIRY_LIMIT.limit({ key: request.headers.get('CF-Connecting-IP') || 'unknown' });
+    if (!success) return json({ ok: false, error: 'rate' }, 429);
+  }
 
   const lead = {
     requestType: clean(data.get('requestType'), 120) || 'Request a quote',
@@ -114,18 +120,6 @@ async function handleInquiry(request, env) {
   const raw = buildMime({ reference, inbox, lead, attachment });
   await env.SEND_EMAIL.send(new EmailMessage(SENDER, DELIVER_TO, raw));
   return json({ ok: true, reference });
-}
-
-async function verifyTurnstile(token, request, env) {
-  if (!token || !env.TURNSTILE_SECRET) return false;
-  const body = new FormData();
-  body.append('secret', env.TURNSTILE_SECRET);
-  body.append('response', token);
-  const ip = request.headers.get('CF-Connecting-IP');
-  if (ip) body.append('remoteip', ip);
-  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body });
-  const outcome = await res.json();
-  return outcome.success === true;
 }
 
 function buildMime({ reference, inbox, lead, attachment }) {
