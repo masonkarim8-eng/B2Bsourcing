@@ -5,6 +5,8 @@ const htmlLanguages = { en: 'en', zh: 'zh-CN', es: 'es', de: 'de' };
 
 const ui = {
   en: {
+    'chat.contactRnd': 'Contact the R&D team',
+    'chat.rndNotes': 'I have a specific product idea or custom request:',
     'chat.quoteGaming': 'Ask about gaming chairs',
     'chat.gamingNotes': 'Interested in the updated gaming chair range. Please send the current designs and options.',
     'chat.viewModel': 'View {model}',
@@ -56,6 +58,8 @@ const ui = {
     'rfq.close': 'Close RFQ list'
   },
   zh: {
+    'chat.contactRnd': '联系研发团队',
+    'chat.rndNotes': '我有具体的产品想法或定制需求：',
     'chat.quoteGaming': '咨询电竞椅',
     'chat.gamingNotes': '希望了解更新后的电竞椅系列，请发送最新款式和可选配置。',
     'chat.viewModel': '查看 {model}',
@@ -107,6 +111,8 @@ const ui = {
     'rfq.close': '关闭询价清单'
   },
   es: {
+    'chat.contactRnd': 'Contactar al equipo de I+D',
+    'chat.rndNotes': 'Tengo una idea de producto o una solicitud personalizada:',
     'chat.quoteGaming': 'Consultar sillas gaming',
     'chat.gamingNotes': 'Me interesa la gama actualizada de sillas gaming. Envíenme los diseños y opciones actuales.',
     'chat.viewModel': 'Ver {model}',
@@ -158,6 +164,8 @@ const ui = {
     'rfq.close': 'Cerrar lista de cotización'
   },
   de: {
+    'chat.contactRnd': 'F&E-Team kontaktieren',
+    'chat.rndNotes': 'Ich habe eine konkrete Produktidee oder Sonderanfrage:',
     'chat.quoteGaming': 'Gaming-Stühle anfragen',
     'chat.gamingNotes': 'Interesse an der aktualisierten Gaming-Stuhl-Reihe. Bitte senden Sie aktuelle Designs und Optionen.',
     'chat.viewModel': '{model} ansehen',
@@ -360,6 +368,7 @@ export const messages = {
   'A short brief is enough to start the conversation.': { zh: '简要需求即可开启沟通。', es: 'Un breve resumen es suficiente para comenzar.', de: 'Eine kurze Beschreibung genügt für den Anfang.' },
   'Request type': { zh: '请求类型', es: 'Tipo de solicitud', de: 'Anfrageart' },
   'Order a sample': { zh: '订购样品', es: 'Solicitar una muestra', de: 'Muster anfordern' },
+  'Custom design / R&D request': { zh: '定制设计 / 研发需求', es: 'Diseño personalizado / solicitud a I+D', de: 'Individuelles Design / F&E-Anfrage' },
   'Request certificates / test reports': { zh: '索取证书 / 测试报告', es: 'Solicitar certificados / informes', de: 'Zertifikate / Prüfberichte anfordern' },
   'Product / model': { zh: '产品 / 型号', es: 'Producto / modelo', de: 'Produkt / Modell' },
   'Name': { zh: '姓名', es: 'Nombre', de: 'Name' },

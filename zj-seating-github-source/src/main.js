@@ -397,7 +397,7 @@ function chatActionLabel(action) {
   switch (action.type) {
     case 'product': return t('chat.viewModel', { model: action.value });
     case 'rfq-add': return t('chat.addToRfq', { model: action.value });
-    case 'quote': return action.value === 'gaming' ? t('chat.quoteGaming') : action.value ? t('chat.quoteModel', { model: action.value }) : t('chat.startRfq');
+    case 'quote': return action.value === 'rnd' ? t('chat.contactRnd') : action.value === 'gaming' ? t('chat.quoteGaming') : action.value ? t('chat.quoteModel', { model: action.value }) : t('chat.startRfq');
     case 'filter': return t('chat.show', { category: translateText(CATEGORY_LABELS[action.value] || action.value) });
     case 'scroll': return translateText(SECTION_LABELS[action.value] || action.value);
     case 'documents': return t('chat.documents');
@@ -477,6 +477,7 @@ assistantLog.addEventListener('click', (event) => {
   } else if (assistantAction === 'quote') {
     closeAssistant(false);
     if (value === 'gaming') openQuote('Gaming chairs', 'Request a quote', { notes: t('chat.gamingNotes') });
+    else if (value === 'rnd') openQuote('', 'Custom design / R&D request', { notes: `${t('chat.rndNotes')} ` });
     else if (value) openQuote(value);
     else if (rfq.getItems().length) rfq.openReview();
     else openQuote('');
