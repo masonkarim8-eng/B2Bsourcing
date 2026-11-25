@@ -1,5 +1,5 @@
 import { getAttribution } from './sharing.js';
-import { clearPOFiles, poFileMetadata, storePOFile, validatePOFile } from './po-files.js';
+import { clearPOFiles, poFileMetadata, validatePOFile } from './po-files.js';
 
 export const LEAD_INBOX_KEY = 'zj-lead-inbox-v1';
 export const SANDBOX_EMAIL_KEY = 'zj-sandbox-emails-v1';
@@ -67,7 +67,7 @@ function persistLead(input, language = 'en') {
   const now = new Date();
   const createdAt = now.toISOString();
   const leads = readLocalLeads();
-  const reference = nextReference(leads, now);
+  const reference = input.reference || nextReference(leads, now);
   const route = routeFor(input.requestType, input.notes);
   const followUpDate = new Date(now.getTime() + 86400000).toISOString().slice(0, 10);
   const id = `lead-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -139,9 +139,26 @@ export async function saveLocalLead(form, language = 'en') {
   const file = data.get('poTemplate');
   const hasFile = Boolean(file?.name);
   const validation = validatePOFile(hasFile ? file : null);
-  if (!validation.valid) return { saved: false, error: 'invalidPOFile', lead: null, emails: [] };
+  if (!validation.valid) return { sent: false, error: 'invalidPOFile' };
+  if (!hasFile) data.delete('poTemplate');
+  data.set('language', language);
+  data.set('pageUrl', window.location.href.split('#')[0]);
+  if (attribution) data.set('attribution', JSON.stringify(attribution).slice(0, 1000));
+
+  let reference = '';
+  try {
+    const response = await fetch('/api/inquiry', { method: 'POST', body: data });
+    const body = await response.json().catch(() => ({}));
+    if (!response.ok || !body.ok) return { sent: false, error: body.error === 'check' ? 'check' : body.error === 'file' ? 'invalidPOFile' : 'sendFailed' };
+    reference = body.reference;
+  } catch {
+    return { sent: false, error: 'sendFailed' };
+  }
+
+  // Keep a copy in this browser so the employee portal demo can show it.
   const models = clean(data.get('model'), 500).split(',').map((model) => model.trim()).filter(Boolean).slice(0, 24);
-  const result = persistLead({
+  persistLead({
+    reference,
     requestType: data.get('requestType'),
     name: data.get('name'),
     company: data.get('company'),
@@ -155,18 +172,7 @@ export async function saveLocalLead(form, language = 'en') {
     source: attribution?.medium === 'social' || attribution?.source ? 'social' : 'website',
     attribution
   }, language);
-  if (!result.saved || !hasFile) return { ...result, attachmentSaved: null };
-  try {
-    const metadata = await storePOFile(result.lead.id, file);
-    const lead = updateLocalLead(result.lead.id, (current) => ({
-      poAttachment: metadata,
-      history: [{ at: new Date().toISOString(), text: `PO template ${metadata.name} stored only in this browser.` }, ...(current.history || [])].slice(0, 100)
-    }));
-    return { ...result, lead: lead || result.lead, attachmentSaved: Boolean(lead) };
-  } catch {
-    const lead = updateLocalLead(result.lead.id, (current) => ({ poAttachment: { ...current.poAttachment, stored: false } }));
-    return { ...result, lead: lead || result.lead, attachmentSaved: false, attachmentError: true };
-  }
+  return { sent: true, reference };
 }
 
 export function createSandboxLead(input = {}) {

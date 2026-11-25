@@ -5,6 +5,9 @@ const htmlLanguages = { en: 'en', zh: 'zh-CN', es: 'es', de: 'de' };
 
 const ui = {
   en: {
+    'lead.sent': 'Inquiry {reference} sent. Our sales team will reply by email.',
+    'lead.checkFailed': 'Please complete the security check above the button, then send again.',
+    'lead.sendFailed': 'Your inquiry could not be sent. Please try again or email sales@b2bsourcing.org.',
     'language.label': 'Select language',
     'lead.sandboxSaved': 'Sandbox RFQ {reference} saved. Two test emails were generated locally; nothing was sent externally.',
     'lead.sandboxSavedPO': 'Sandbox RFQ {reference} and PO template saved in this browser. Two test emails were generated; nothing was sent externally.',
@@ -39,6 +42,9 @@ const ui = {
     'rfq.close': 'Close RFQ list'
   },
   zh: {
+    'lead.sent': '询价 {reference} 已发送。销售团队将通过邮件回复您。',
+    'lead.checkFailed': '请先完成按钮上方的安全验证，然后重新发送。',
+    'lead.sendFailed': '询价未能发送。请重试，或发送邮件至 sales@b2bsourcing.org。',
     'language.label': '选择语言',
     'lead.sandboxSaved': '沙盒询价 {reference} 已保存。已在本地生成两封测试邮件，未向外部发送任何内容。',
     'lead.sandboxSavedPO': '沙盒询价 {reference} 和采购订单模板已保存在此浏览器中。已生成两封测试邮件，未向外部发送任何内容。',
@@ -73,6 +79,9 @@ const ui = {
     'rfq.close': '关闭询价清单'
   },
   es: {
+    'lead.sent': 'Consulta {reference} enviada. Nuestro equipo de ventas le responderá por correo.',
+    'lead.checkFailed': 'Complete la verificación de seguridad sobre el botón y vuelva a enviar.',
+    'lead.sendFailed': 'No se pudo enviar su consulta. Inténtelo de nuevo o escriba a sales@b2bsourcing.org.',
     'language.label': 'Seleccionar idioma',
     'lead.sandboxSaved': 'La RFQ de prueba {reference} se guardó. Se generaron localmente dos correos de prueba; no se envió nada externamente.',
     'lead.sandboxSavedPO': 'La RFQ {reference} y la plantilla de orden de compra se guardaron en este navegador. Se generaron dos correos de prueba; no se envió nada externamente.',
@@ -107,6 +116,9 @@ const ui = {
     'rfq.close': 'Cerrar lista de cotización'
   },
   de: {
+    'lead.sent': 'Anfrage {reference} gesendet. Unser Vertrieb antwortet Ihnen per E-Mail.',
+    'lead.checkFailed': 'Bitte schließen Sie die Sicherheitsprüfung über der Schaltfläche ab und senden Sie erneut.',
+    'lead.sendFailed': 'Ihre Anfrage konnte nicht gesendet werden. Bitte erneut versuchen oder an sales@b2bsourcing.org schreiben.',
     'language.label': 'Sprache auswählen',
     'lead.sandboxSaved': 'Sandbox-RFQ {reference} wurde gespeichert. Zwei Test-E-Mails wurden lokal erstellt; nichts wurde extern versendet.',
     'lead.sandboxSavedPO': 'Sandbox-RFQ {reference} und Bestellvorlage wurden in diesem Browser gespeichert. Zwei Test-E-Mails wurden erstellt; nichts wurde extern versendet.',
@@ -148,7 +160,7 @@ export const messages = {
   'Select language': { zh: '选择语言', es: 'Seleccionar idioma', de: 'Sprache auswählen' },
   'Company': { zh: '公司', es: 'Empresa', de: 'Unternehmen' },
   'PO template (optional)': { zh: '采购订单模板（可选）', es: 'Plantilla de orden de compra (opcional)', de: 'Bestellvorlage (optional)' },
-  'PDF, Word, Excel, CSV, or TXT · up to 10 MB · saved only in this browser.': { zh: 'PDF、Word、Excel、CSV 或 TXT，最大 10 MB，仅保存在此浏览器中。', es: 'PDF, Word, Excel, CSV o TXT · hasta 10 MB · solo se guarda en este navegador.', de: 'PDF, Word, Excel, CSV oder TXT · maximal 10 MB · nur in diesem Browser gespeichert.' },
+  'PDF, Word, Excel, CSV, or TXT · up to 10 MB · sent with your inquiry.': { zh: 'PDF、Word、Excel、CSV 或 TXT，最大 10 MB，将随询价一并发送。', es: 'PDF, Word, Excel, CSV o TXT · hasta 10 MB · se envía con su consulta.', de: 'PDF, Word, Excel, CSV oder TXT · maximal 10 MB · wird mit Ihrer Anfrage gesendet.' },
   'Products': { zh: '产品', es: 'Productos', de: 'Produkte' },
   'Quality': { zh: '品质', es: 'Calidad', de: 'Qualität' },
   'Factory': { zh: '工厂', es: 'Fábrica', de: 'Werk' },
@@ -285,7 +297,7 @@ export const messages = {
   'Office, gaming, and lifestyle seating for global B2B buyers.': { zh: '为全球 B2B 买家提供办公、电竞和生活方式座椅。', es: 'Asientos de oficina, gaming y lifestyle para compradores B2B internacionales.', de: 'Büro-, Gaming- und Lifestyle-Sitzmöbel für internationale B2B-Einkäufer.' },
   'Explore': { zh: '探索', es: 'Explorar', de: 'Entdecken' },
   'Contact': { zh: '联系方式', es: 'Contacto', de: 'Kontakt' },
-  'Homepage design concept': { zh: '首页设计概念', es: 'Concepto de página principal', de: 'Homepage-Designkonzept' },
+  'Concept site by B2B Sourcing · Not the official ZJ Seating website': { zh: '由 B2B Sourcing 制作的概念网站 · 非 ZJ Seating 官方网站', es: 'Sitio conceptual de B2B Sourcing · No es el sitio oficial de ZJ Seating', de: 'Konzeptseite von B2B Sourcing · Nicht die offizielle ZJ-Seating-Website' },
   'Product landing page concept': { zh: '产品落地页设计概念', es: 'Concepto de página de producto', de: 'Produktseiten-Designkonzept' },
   'PROJECT INQUIRY': { zh: '项目询价', es: 'CONSULTA DE PROYECTO', de: 'PROJEKTANFRAGE' },
   'Tell us what you’re building.': { zh: '告诉我们您的产品计划。', es: 'Cuéntenos qué quiere desarrollar.', de: 'Beschreiben Sie Ihr Vorhaben.' },
@@ -302,7 +314,7 @@ export const messages = {
   'Units': { zh: '件数', es: 'Unidades', de: 'Einheiten' },
   'Country / port': { zh: '国家 / 港口', es: 'País / puerto', de: 'Land / Hafen' },
   'Materials, colors, target timing, or customization needs': { zh: '材料、颜色、目标时间或定制需求', es: 'Materiales, colores, plazos o personalización', de: 'Materialien, Farben, Zeitplan oder Anpassungen' },
-  'Review inquiry': { zh: '查看询价内容', es: 'Revisar consulta', de: 'Anfrage prüfen' },
+  'Send inquiry': { zh: '发送询价', es: 'Enviar consulta', de: 'Anfrage senden' },
   'Concept preview only — your inquiry has not been sent. This form is ready to connect to the ZJ Seating sales workflow.': { zh: '仅为概念预览——您的询价尚未发送。此表单可接入 ZJ Seating 销售工作流程。', es: 'Solo vista previa: su consulta no se ha enviado. Este formulario está listo para conectarse al flujo de ventas de ZJ Seating.', de: 'Nur eine Konzeptvorschau – Ihre Anfrage wurde nicht gesendet. Das Formular kann an den Vertriebsworkflow von ZJ Seating angebunden werden.' },
   'Close quote form': { zh: '关闭询价表单', es: 'Cerrar formulario de cotización', de: 'Anfrageformular schließen' },
   'Close product details': { zh: '关闭产品详情', es: 'Cerrar detalles del producto', de: 'Produktdetails schließen' },
@@ -728,7 +740,7 @@ Object.assign(messages, {
   'ZJ Seating brings product development, manufacturing, quality, and export support into one sourcing partnership.': zhEsDe('ZJ Seating 将产品开发、制造、品质和出口支持整合为一体化采购合作。', 'ZJ Seating reúne desarrollo de producto, fabricación, calidad y apoyo a la exportación en una sola colaboración de suministro.', 'ZJ Seating verbindet Produktentwicklung, Fertigung, Qualität und Exportunterstützung in einer Beschaffungspartnerschaft.'),
   'Buyers work with clear points of contact across commercial decisions, product details, compliance documents, and delivery coordination.': zhEsDe('买家可通过明确的联系人推进商务决策、产品细节、合规文件和交付协调。', 'Los compradores cuentan con contactos claros para decisiones comerciales, detalles de producto, documentos de cumplimiento y coordinación de entregas.', 'Einkäufer erhalten klare Ansprechpartner für Geschäftsentscheidungen, Produktdetails, Compliance-Unterlagen und Lieferkoordination.'),
   'Meet the project team.': zhEsDe('认识项目团队。', 'Conozca al equipo del proyecto.', 'Lernen Sie das Projektteam kennen.'),
-  'Fictional concept profiles for layout preview. Replace names and responsibilities with verified staff information before publication.': zhEsDe('以下为用于版式预览的虚构人物资料。发布前请替换为经核实的员工姓名与职责。', 'Perfiles ficticios para la vista previa del diseño. Sustituya nombres y responsabilidades por información verificada del personal antes de publicar.', 'Fiktive Konzeptprofile zur Layout-Vorschau. Ersetzen Sie Namen und Zuständigkeiten vor der Veröffentlichung durch geprüfte Mitarbeiterangaben.'),
+  'Placeholder profiles for this concept. Final names and roles will come from ZJ Seating.': zhEsDe('以下为本概念网站的占位人物资料，最终姓名与职责将由 ZJ Seating 提供。', 'Perfiles provisionales de este concepto. Los nombres y funciones definitivos los proporcionará ZJ Seating.', 'Platzhalterprofile für dieses Konzept. Endgültige Namen und Rollen liefert ZJ Seating.'),
   'Export Sales Director': zhEsDe('出口销售总监', 'Director de Ventas de Exportación', 'Exportverkaufsleiter'),
   'Overseas market strategy, key accounts, and commercial negotiations.': zhEsDe('负责海外市场战略、重点客户和商务谈判。', 'Estrategia de mercados internacionales, cuentas clave y negociaciones comerciales.', 'Internationale Marktstrategie, Schlüsselkunden und Geschäftsverhandlungen.'),
   'International Account Manager': zhEsDe('国际客户经理', 'Gerente Internacional de Cuentas', 'Internationale Kundenbetreuerin'),

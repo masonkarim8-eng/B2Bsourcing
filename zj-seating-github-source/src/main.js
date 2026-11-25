@@ -8,7 +8,7 @@ import { initI18n, onLanguageChange, t, translateTree } from './i18n.js';
 import { localizedProductName, localizedPublicDescription } from './product-copy.js';
 import { captureAttribution } from './sharing.js';
 import { saveLocalLead } from './lead-handoff.js';
-import { leadStatusMessage } from './lead-status.js';
+import { leadStatusMessage, resetInquiryCheck } from './lead-status.js';
 import { getLanguage } from './i18n.js';
 import { getAuthenticatedClient } from './client-store.js';
 
@@ -199,6 +199,8 @@ document.querySelector('#quote-form').addEventListener('submit', async (event) =
     formStatus.textContent = leadStatusMessage(result, t);
     formStatus.hidden = false;
     translateTree(formStatus);
+    if (result.sent) form.reset();
+    resetInquiryCheck();
   } finally {
     submitButton.disabled = false;
   }
@@ -364,7 +366,7 @@ function getAssistantResponse(question) {
 
   if (/contact|email|phone|sales|human|agent/.test(query)) {
     return {
-      text: 'You can email info@zjseating.com or call +86 159 6826 2285. For a product-specific response, prepare an RFQ with your model, quantity, and destination.',
+      text: 'You can email info@b2bsourcing.org or call +86 159 6826 2285. For a product-specific response, prepare an RFQ with your model, quantity, and destination.',
       actions: [{ label: 'Prepare an RFQ', type: 'quote' }]
     };
   }

@@ -638,3 +638,7 @@ html[lang^='zh'] h1, html[lang^='zh'] h2, html[lang^='zh'] h3, html[lang^='zh'] 
 .footer-staff-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; }
 .footer-staff-links a { min-height: 44px; display: inline-flex; align-items: center; color: oklch(0.75 0.025 240); font-size: 11px; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color 160ms ease-out, text-decoration-color 160ms ease-out; }
 .footer-staff-links a:hover { color: var(--paper-50); text-decoration-color: currentColor; }
+
+/* Inquiry form: spam trap and security check */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+#quote-form .cf-turnstile { margin: 0.75rem 0; }

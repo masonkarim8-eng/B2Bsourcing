@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body class="product-page-body">
   <a class="skip-link" href="#product-main">Skip to product details</a>
@@ -16,7 +17,7 @@
   <div class="topbar">
     <div class="shell topbar-inner">
       <span>OEM / ODM seating · Anji, Zhejiang</span>
-      <a href="mailto:info@zjseating.com">info@zjseating.com</a>
+      <a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a>
     </div>
   </div>
 
@@ -101,9 +102,9 @@
     <div class="shell footer-grid">
       <div><img class="footer-logo" src="./assets/logo.png" alt="ZJ Seating Technology"><p>Office, gaming, and lifestyle seating for global B2B buyers.</p></div>
       <div><h3>Explore</h3><a href="./index.html#products">Products</a><a href="./index.html#factory">Factory</a><a href="./index.html#about">About us</a><a href="./index.html#quality">Quality</a><a href="./social.html">Social</a></div>
-      <div><h3>Contact</h3><a href="mailto:info@zjseating.com">info@zjseating.com</a><a href="tel:+8615968262285">+86 159 6826 2285</a></div>
+      <div><h3>Contact</h3><a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a><a href="tel:+8615968262285">+86 159 6826 2285</a></div>
     </div>
-    <div class="shell footer-bottom"><span>© 2026 ZJ Seating</span><span>Product landing page concept</span></div>
+    <div class="shell footer-bottom"><span>© 2026 ZJ Seating</span><span>Concept site by B2B Sourcing · Not the official ZJ Seating website</span></div>
   </footer>
 
   <dialog class="modal quote-modal" id="quote-dialog" aria-labelledby="quote-title">
@@ -121,9 +122,9 @@
         <label>Estimated quantity<input type="number" name="quantity" min="1" placeholder="Units"></label>
         <label>Destination<input type="text" name="destination" placeholder="Country / port"></label>
       </div>
-      <label>PO template (optional)<small>PDF, Word, Excel, CSV, or TXT · up to 10 MB · saved only in this browser.</small><input type="file" name="poTemplate" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt"></label>
+      <label>PO template (optional)<small>PDF, Word, Excel, CSV, or TXT · up to 10 MB · sent with your inquiry.</small><input type="file" name="poTemplate" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt"></label>
       <label>Project notes<textarea name="notes" id="quote-notes" rows="4" placeholder="Materials, colors, target timing, or customization needs"></textarea></label>
-      <button class="button" type="submit">Review inquiry <span aria-hidden="true">→</span></button>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAGSG6guXB_bEfp2l" data-size="flexible"></div><input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="button" type="submit">Send inquiry <span aria-hidden="true">→</span></button>
       <p class="form-status" id="form-status" role="status" hidden></p>
     </form>
   </dialog>

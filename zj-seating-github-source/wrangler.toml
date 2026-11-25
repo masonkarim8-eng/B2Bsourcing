@@ -1,5 +1,14 @@
 name = "zjseating"
+main = "worker/index.js"
 compatibility_date = "2026-11-25"
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
+
+# Inquiry emails go to Mason's verified Email Routing destination.
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "masonkarim8@gmail.com"
+
+# Secret set in Cloudflare, not in this file: TURNSTILE_SECRET

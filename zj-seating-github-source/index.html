@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A refreshed ZJ Seating homepage concept for OEM/ODM seating buyers.">
+  <meta name="description" content="OEM/ODM office, gaming, and lifestyle seating from Anji, Zhejiang. A ZJ Seating concept site prepared by B2B Sourcing.">
   <title>ZJ Seating — Seating Built for Business</title>
   <link rel="icon" type="image/png" href="./assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -16,7 +17,7 @@
   <div class="topbar">
     <div class="shell topbar-inner">
       <span>OEM / ODM seating · Anji, Zhejiang</span>
-      <a href="mailto:info@zjseating.com">info@zjseating.com</a>
+      <a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a>
     </div>
   </div>
 
@@ -184,7 +185,7 @@
           <div><p class="overline">ABOUT ZJ SEATING</p><h2 id="about-title">People behind the partnership.</h2></div>
           <div class="about-team-story"><p>One team from first brief to repeat order.</p><p>ZJ Seating brings product development, manufacturing, quality, and export support into one sourcing partnership.</p><p>Buyers work with clear points of contact across commercial decisions, product details, compliance documents, and delivery coordination.</p></div>
         </div>
-        <div class="team-heading"><h3>Meet the project team.</h3><p>Fictional concept profiles for layout preview. Replace names and responsibilities with verified staff information before publication.</p></div>
+        <div class="team-heading"><h3>Meet the project team.</h3><p>Placeholder profiles for this concept. Final names and roles will come from ZJ Seating.</p></div>
         <div class="team-grid">
           <article class="team-member"><div class="team-portrait"><img src="./assets/portrait-placeholder.svg" alt="" width="180" height="200" loading="lazy"><span aria-hidden="true">DZ</span></div><div class="team-member-copy"><h4>Daniel Zhou</h4><p class="team-role">Export Sales Director</p><p class="team-focus">Overseas market strategy, key accounts, and commercial negotiations.</p><button class="text-link team-contact" type="button" data-open-quote data-department="Export Sales Director" data-request-type="Request a quote">Contact export sales <span aria-hidden="true">→</span></button></div></article>
           <article class="team-member"><div class="team-portrait"><img src="./assets/portrait-placeholder.svg" alt="" width="180" height="200" loading="lazy"><span aria-hidden="true">MC</span></div><div class="team-member-copy"><h4>Mia Chen</h4><p class="team-role">International Account Manager</p><p class="team-focus">Buyer communication, samples, order coordination, and after-sales follow-up.</p><button class="text-link team-contact" type="button" data-open-quote data-department="International Account Manager" data-request-type="Request a quote">Contact account support <span aria-hidden="true">→</span></button></div></article>
@@ -245,9 +246,9 @@
     <div class="shell footer-grid">
       <div><img class="footer-logo" src="./assets/logo.png" alt="ZJ Seating Technology"><p>Office, gaming, and lifestyle seating for global B2B buyers.</p></div>
       <div><h3>Explore</h3><a href="#products">Products</a><a href="#factory">Factory</a><a href="#about">About us</a><a href="#quality">Quality</a><a href="#culture">Culture</a><a href="./social.html">Social</a><a href="./client.html">Client account</a></div>
-      <div><h3>Contact</h3><a href="mailto:info@zjseating.com">info@zjseating.com</a><a href="tel:+8615968262285">+86 159 6826 2285</a></div>
+      <div><h3>Contact</h3><a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a><a href="tel:+8615968262285">+86 159 6826 2285</a></div>
     </div>
-    <div class="shell footer-bottom"><span>© 2026 ZJ Seating</span><span>Homepage design concept</span><nav class="footer-staff-links" aria-label="Employee access"><a class="employee-nav-link" href="./admin.html">Employee access</a><a class="manager-approval-nav-link" href="./admin.html#approvals">Manager approvals</a></nav></div>
+    <div class="shell footer-bottom"><span>© 2026 ZJ Seating</span><span>Concept site by B2B Sourcing · Not the official ZJ Seating website</span><nav class="footer-staff-links" aria-label="Employee access"><a class="employee-nav-link" href="./admin.html">Employee access</a><a class="manager-approval-nav-link" href="./admin.html#approvals">Manager approvals</a></nav></div>
   </footer>
 
   <aside class="shortlist-tray" id="shortlist-tray" aria-labelledby="shortlist-title" hidden>
@@ -345,9 +346,9 @@
         <label>Estimated quantity<input type="number" name="quantity" min="1" placeholder="Units"></label>
         <label>Destination<input type="text" name="destination" placeholder="Country / port"></label>
       </div>
-      <label>PO template (optional)<small>PDF, Word, Excel, CSV, or TXT · up to 10 MB · saved only in this browser.</small><input type="file" name="poTemplate" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt"></label>
+      <label>PO template (optional)<small>PDF, Word, Excel, CSV, or TXT · up to 10 MB · sent with your inquiry.</small><input type="file" name="poTemplate" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt"></label>
       <label>Project notes<textarea name="notes" id="quote-notes" rows="4" placeholder="Materials, colors, target timing, or customization needs"></textarea></label>
-      <button class="button" type="submit">Review inquiry <span aria-hidden="true">→</span></button>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAGSG6guXB_bEfp2l" data-size="flexible"></div><input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="button" type="submit">Send inquiry <span aria-hidden="true">→</span></button>
       <p class="form-status" id="form-status" role="status" hidden></p>
     </form>
   </dialog>
