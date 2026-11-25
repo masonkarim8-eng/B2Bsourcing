@@ -1,4 +1,5 @@
 import { EmailMessage } from 'cloudflare:email';
+import { handleChat } from './assistant.js';
 
 // All site inquiries are delivered to this verified Email Routing destination.
 // The tag in the subject shows which b2bsourcing.org inbox the request belongs to.
@@ -24,9 +25,56 @@ export default {
         return json({ ok: false, error: 'server' }, 500);
       }
     }
+    if (url.pathname === '/api/chat') {
+      if (request.method !== 'POST') return json({ ok: false, error: 'method' }, 405);
+      try {
+        return await handleChat(request, env, { sendLead: (lead) => sendChatLead(lead, env) });
+      } catch (error) {
+        console.error('chat failed', error);
+        return json({ ok: false, error: 'server' }, 500);
+      }
+    }
     return env.ASSETS.fetch(request);
   }
 };
+
+async function sendChatLead({ email, language, page, transcript }, env) {
+  const reference = makeReference().replace('RFQ', 'CHAT');
+  const lines = transcript.map((m) => `${m.role === 'user' ? 'Buyer' : 'Ask ZJ'}: ${m.content}`);
+  const text = [
+    'New lead from the Ask ZJ chat on the ZJ Seating concept site',
+    'Inbox: sales@b2bsourcing.org',
+    `Reference: ${reference}`,
+    `Buyer email: ${email}`,
+    `Language: ${language}`,
+    `Page: ${page || 'Unknown'}`,
+    '',
+    'Conversation so far:',
+    '',
+    ...lines,
+    '',
+    'Reply to this email to answer the buyer directly.'
+  ].join('\r\n');
+  const raw = buildTextEmail({ subject: `[sales] ${reference} · Chat lead · ${email}`, text, replyTo: email, reference, inbox: 'sales' });
+  await env.SEND_EMAIL.send(new EmailMessage(SENDER, DELIVER_TO, raw));
+}
+
+function buildTextEmail({ subject, text, replyTo, reference, inbox }) {
+  return [
+    `From: "ZJ Seating site" <${SENDER}>`,
+    `To: ${DELIVER_TO}`,
+    `Reply-To: ${headerSafe(replyTo)}`,
+    `Subject: ${encodeHeader(subject)}`,
+    `Date: ${new Date().toUTCString()}`,
+    `Message-ID: <${reference}.${crypto.randomUUID()}@b2bsourcing.org>`,
+    `X-Inquiry-Inbox: ${inbox}`,
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=utf-8',
+    'Content-Transfer-Encoding: base64',
+    '',
+    wrap(toBase64(new TextEncoder().encode(text)))
+  ].join('\r\n');
+}
 
 async function handleInquiry(request, env) {
   const data = await request.formData();
