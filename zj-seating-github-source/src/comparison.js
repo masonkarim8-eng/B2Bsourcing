@@ -158,6 +158,8 @@ export function initComparison({ products, getDisclosure, publicSpecs, openQuote
     const rows = [
       ['Category', (product) => product.label],
       ['Disclosure level', (product) => getDisclosure(product).badge],
+      ['Color shown', (product) => product.color || ''],
+      ['Other colors', (product) => product.colorOptions || ''],
       ['Dimensions', (product) => specification(product, 'Dimensions')],
       ['Minimum order (MOQ)', (product) => specification(product, 'Minimum order')],
       ['Container loading', (product) => specification(product, 'Container loading')]

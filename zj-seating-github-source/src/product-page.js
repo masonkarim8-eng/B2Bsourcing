@@ -95,6 +95,13 @@ function renderProductContent() {
   image.src = product.image;
   image.alt = disclosure.tier === 'teaser' ? `${product.alt}; limited flagship preview` : product.alt;
   document.querySelector('#product-specs').innerHTML = publicSpecs(product).map(([term, value]) => `<div><dt>${term}</dt><dd>${value}</dd></div>`).join('');
+  const scene = document.querySelector('#product-scene');
+  scene.hidden = !product.scene;
+  if (product.scene) {
+    const sceneImage = document.querySelector('#product-scene-image');
+    sceneImage.src = product.scene;
+    sceneImage.alt = `${product.alt} in a room setting`;
+  }
 
   const related = [
     ...products.filter((item) => item.category === product.category && item.model !== product.model),
