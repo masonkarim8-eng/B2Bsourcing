@@ -1,0 +1,20 @@
+# Default: integrator reviews everything
+*                                   @your-github-handle
+
+# Design and layout
+/zj-seating-github-source/src/      @kimi-agent
+/zj-seating-github-source/assets/   @kimi-agent
+/zj-seating-github-source/*.html    @kimi-agent
+
+# Content and SEO
+/zj-seating-github-source/content/  @chatgpt-agent
+/zj-seating-github-source/seo/      @chatgpt-agent
+
+# Build and deploy config
+/zj-seating-github-source/wrangler.toml    @claude-agent
+/zj-seating-github-source/package.json     @claude-agent
+/zj-seating-github-source/vite.config.js   @claude-agent
+
+# Audits
+/zj-seating-github-source/tests/    @gemini-agent
+/zj-seating-github-source/audits/   @gemini-agent
