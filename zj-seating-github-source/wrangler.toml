@@ -1,4 +1,5 @@
 name = "zjseating"
+compatibility_date = "2026-11-25"
 
 [assets]
 directory = "./dist"
