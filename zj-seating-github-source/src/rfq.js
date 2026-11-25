@@ -84,7 +84,8 @@ export function initRFQ({ products, onSubmit }) {
       const selected = items.some((item) => item.model === button.dataset.rfqAdd);
       button.classList.toggle('is-added', selected);
       button.setAttribute('aria-pressed', String(selected));
-      button.textContent = t(selected ? 'rfq.added' : 'rfq.add');
+      const primary = button.dataset.rfqVariant === 'primary';
+      button.textContent = t(selected ? (primary ? 'rfq.addedPrimary' : 'rfq.added') : (primary ? 'rfq.addPrimary' : 'rfq.add'));
       button.setAttribute('aria-label', `${t(selected ? 'rfq.view' : 'rfq.add')}: ${button.dataset.rfqAdd}`);
     });
   }

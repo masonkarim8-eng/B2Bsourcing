@@ -612,6 +612,10 @@ function registerDictionary() {
     ui[lang]['rfq.add'] = dictionary[lang].card.addRfq;
     ui[lang]['rfq.added'] = dictionary[lang].card.inRfq;
   });
+  Object.assign(ui.en, { 'rfq.addPrimary': 'Add to RFQ list', 'rfq.addedPrimary': '✓ In RFQ list' });
+  Object.assign(ui.zh, { 'rfq.addPrimary': '加入询价单', 'rfq.addedPrimary': '✓ 已加入询价单' });
+  Object.assign(ui.es, { 'rfq.addPrimary': 'Añadir a la lista de cotización', 'rfq.addedPrimary': '✓ En la lista de cotización' });
+  Object.assign(ui.de, { 'rfq.addPrimary': 'Zur Anfrageliste hinzufügen', 'rfq.addedPrimary': '✓ In der Anfrageliste' });
 }
 registerDictionary();
 Object.assign(messages, {
