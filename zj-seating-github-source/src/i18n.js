@@ -5,6 +5,11 @@ const htmlLanguages = { en: 'en', zh: 'zh-CN', es: 'es', de: 'de' };
 
 const ui = {
   en: {
+    'lead.successTitle': 'Inquiry sent',
+    'lead.successReference': 'Reference: {reference}',
+    'lead.successBody': 'Thank you. Our sales team will reply to {email}. Keep the reference number for any follow-up.',
+    'lead.backHome': 'Back to homepage',
+    'lead.close': 'Close',
     'lead.sent': 'Inquiry {reference} sent. Our sales team will reply by email.',
     'lead.checkFailed': 'Please complete the security check above the button, then send again.',
     'lead.sendFailed': 'Your inquiry could not be sent. Please try again or email sales@b2bsourcing.org.',
@@ -42,6 +47,11 @@ const ui = {
     'rfq.close': 'Close RFQ list'
   },
   zh: {
+    'lead.successTitle': '询价已发送',
+    'lead.successReference': '参考编号：{reference}',
+    'lead.successBody': '谢谢。销售团队将回复至 {email}。后续沟通请保留此参考编号。',
+    'lead.backHome': '返回首页',
+    'lead.close': '关闭',
     'lead.sent': '询价 {reference} 已发送。销售团队将通过邮件回复您。',
     'lead.checkFailed': '请先完成按钮上方的安全验证，然后重新发送。',
     'lead.sendFailed': '询价未能发送。请重试，或发送邮件至 sales@b2bsourcing.org。',
@@ -79,6 +89,11 @@ const ui = {
     'rfq.close': '关闭询价清单'
   },
   es: {
+    'lead.successTitle': 'Consulta enviada',
+    'lead.successReference': 'Referencia: {reference}',
+    'lead.successBody': 'Gracias. Nuestro equipo de ventas responderá a {email}. Conserve el número de referencia para cualquier seguimiento.',
+    'lead.backHome': 'Volver al inicio',
+    'lead.close': 'Cerrar',
     'lead.sent': 'Consulta {reference} enviada. Nuestro equipo de ventas le responderá por correo.',
     'lead.checkFailed': 'Complete la verificación de seguridad sobre el botón y vuelva a enviar.',
     'lead.sendFailed': 'No se pudo enviar su consulta. Inténtelo de nuevo o escriba a sales@b2bsourcing.org.',
@@ -116,6 +131,11 @@ const ui = {
     'rfq.close': 'Cerrar lista de cotización'
   },
   de: {
+    'lead.successTitle': 'Anfrage gesendet',
+    'lead.successReference': 'Referenz: {reference}',
+    'lead.successBody': 'Vielen Dank. Unser Vertrieb antwortet an {email}. Bitte bewahren Sie die Referenznummer für Rückfragen auf.',
+    'lead.backHome': 'Zur Startseite',
+    'lead.close': 'Schließen',
     'lead.sent': 'Anfrage {reference} gesendet. Unser Vertrieb antwortet Ihnen per E-Mail.',
     'lead.checkFailed': 'Bitte schließen Sie die Sicherheitsprüfung über der Schaltfläche ab und senden Sie erneut.',
     'lead.sendFailed': 'Ihre Anfrage konnte nicht gesendet werden. Bitte erneut versuchen oder an sales@b2bsourcing.org schreiben.',
