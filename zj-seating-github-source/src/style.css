@@ -94,7 +94,7 @@ h2 { font-family: var(--font-serif); font-size: clamp(32px, 3.6vw, 48px); line-h
 .hero-sub { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px 64px; margin-top: 40px; }
 .hero-sub p { max-width: 56ch; color: var(--taupe); font-size: 18px; line-height: 1.65; }
 .hero-links { display: flex; gap: 28px; flex-wrap: wrap; }
-.bleed img { width: 100%; height: clamp(300px, 54vw, 760px); object-fit: cover; filter: grayscale(1) contrast(1.04); }
+.bleed img { width: 100%; height: clamp(300px, 54vw, 760px); object-fit: cover; }
 .bleed figcaption { padding-block: 12px; color: var(--taupe); font-size: 12px; letter-spacing: .04em; }
 .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-block: 40px 0; border-top: 1px solid var(--hairline); }
 .facts > div { padding: 24px 24px 0 0; }
@@ -144,7 +144,7 @@ h2 { font-family: var(--font-serif); font-size: clamp(32px, 3.6vw, 48px); line-h
 /* Manufacturing: full-bleed monochrome strip */
 .manufacturing .section-head { margin-bottom: 40px; }
 .factory-strip { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 4px; }
-.factory-strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: grayscale(1) contrast(1.04); }
+.factory-strip img { width: 100%; height: clamp(220px, 24vw, 380px); object-fit: cover; }
 .factory-strip figcaption { padding: 12px var(--gutter) 0 0; color: var(--taupe); font-size: 12px; }
 .factory-strip figure:first-child figcaption { padding-left: var(--gutter); }
 
