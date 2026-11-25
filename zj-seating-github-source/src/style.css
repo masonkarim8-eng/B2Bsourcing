@@ -642,3 +642,11 @@ html[lang^='zh'] h1, html[lang^='zh'] h2, html[lang^='zh'] h3, html[lang^='zh'] 
 /* Inquiry form: spam trap and security check */
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 #quote-form .cf-turnstile { margin: 0.75rem 0; }
+.success-modal { position: fixed; inset: 0; margin: auto; height: fit-content; max-width: 520px; text-align: center; padding: 40px 32px; }
+.success-modal h2 { padding-right: 0; margin-top: 16px; }
+.success-mark { width: 64px; height: 64px; margin: 0 auto; display: grid; place-items: center; border-radius: 50%; background: oklch(0.62 0.15 150); }
+.success-mark svg { width: 34px; height: 34px; fill: none; stroke: white; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.success-reference { margin-top: 12px; font-weight: 700; font-size: 18px; letter-spacing: .02em; }
+.success-body { margin-top: 8px; color: var(--text-muted); }
+.success-actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.success-close { border-color: var(--navy-950, currentColor); }

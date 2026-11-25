@@ -6,7 +6,7 @@ import { initI18n, onLanguageChange, getLanguage, t, translateTree } from './i18
 import { initRFQ, rfqNotes } from './rfq.js';
 import { attributedProductUrl, captureAttribution } from './sharing.js';
 import { saveLocalLead } from './lead-handoff.js';
-import { leadStatusMessage, resetInquiryCheck } from './lead-status.js';
+import { leadStatusMessage, resetInquiryCheck, showInquirySuccess } from './lead-status.js';
 
 initI18n();
 captureAttribution();
@@ -72,7 +72,13 @@ document.querySelector('#quote-form').addEventListener('submit', async (event) =
     formStatus.textContent = leadStatusMessage(result, t);
     formStatus.hidden = false;
     translateTree(formStatus);
-    if (result.sent) form.reset();
+    if (result.sent) {
+      const email = form.elements.email.value;
+      form.reset();
+      formStatus.hidden = true;
+      form.closest('dialog')?.close();
+      showInquirySuccess(result.reference, email);
+    }
     resetInquiryCheck();
   } finally {
     submitButton.disabled = false;

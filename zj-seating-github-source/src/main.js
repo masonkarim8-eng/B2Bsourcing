@@ -8,7 +8,7 @@ import { initI18n, onLanguageChange, t, translateTree } from './i18n.js';
 import { localizedProductName, localizedPublicDescription } from './product-copy.js';
 import { captureAttribution } from './sharing.js';
 import { saveLocalLead } from './lead-handoff.js';
-import { leadStatusMessage, resetInquiryCheck } from './lead-status.js';
+import { leadStatusMessage, resetInquiryCheck, showInquirySuccess } from './lead-status.js';
 import { getLanguage } from './i18n.js';
 import { getAuthenticatedClient } from './client-store.js';
 
@@ -199,7 +199,13 @@ document.querySelector('#quote-form').addEventListener('submit', async (event) =
     formStatus.textContent = leadStatusMessage(result, t);
     formStatus.hidden = false;
     translateTree(formStatus);
-    if (result.sent) form.reset();
+    if (result.sent) {
+      const email = form.elements.email.value;
+      form.reset();
+      formStatus.hidden = true;
+      form.closest('dialog')?.close();
+      showInquirySuccess(result.reference, email);
+    }
     resetInquiryCheck();
   } finally {
     submitButton.disabled = false;
