@@ -8,7 +8,8 @@ const lines = publicProducts.map((p) => {
   const tier = getDisclosure(p).tier;
   const access = tier === 'public' ? 'public specs' : tier === 'teaser' ? 'flagship preview, details only via sales review' : 'dealer model, specs only via buyer review';
   const specs = [p.dimensions && `size ${p.dimensions}`, p.moq && `MOQ ${p.moq}`, p.loading && `loading ${p.loading}`].filter(Boolean).join('; ');
-  return `- ${p.model} | ${p.name} | category: ${p.category} | ${access} | ${p.summary} ${p.description}${specs ? ` | ${specs}` : ''}`;
+  const colors = p.color ? ` | color shown: ${p.color}; other colors: ${p.colorOptions}` : '';
+  return `- ${p.model} | ${p.name} | category: ${p.category} | ${access} | ${p.summary} ${p.description}${specs ? ` | ${specs}` : ''}${colors}`;
 });
 const models = publicProducts.map((p) => p.model);
 const categories = [...new Set(publicProducts.map((p) => p.category))];

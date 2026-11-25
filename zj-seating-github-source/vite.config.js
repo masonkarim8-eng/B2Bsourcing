@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { resolve, basename } from 'node:path';
+import { resolve } from 'node:path';
 import { publicProducts } from './src/public-products.js';
 import { productCardHtml } from './src/catalog-card.js';
 
@@ -12,7 +12,7 @@ function staticCatalog() {
       order: 'pre',
       handler(html, ctx) {
         if (!ctx.filename.endsWith('index.html') || !html.includes('<!--STATIC_CATALOG-->')) return html;
-        const cards = publicProducts.map((p) => productCardHtml(p, `./assets/${basename(new URL(p.image).pathname)}`)).join('\n');
+        const cards = publicProducts.map((p) => productCardHtml(p, `./assets/${new URL(p.image).pathname.split('/assets/').pop()}`)).join('\n');
         return html.replace('<!--STATIC_CATALOG-->', cards).replace('<!--CATALOG_COUNT-->', `${publicProducts.length} models`);
       }
     }

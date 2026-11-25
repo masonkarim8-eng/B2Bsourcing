@@ -45,14 +45,17 @@ export function publicDescription(product) {
 
 export function publicSpecs(product) {
   const disclosure = getDisclosure(product);
+  const colors = [['Color shown', product.color], ['Other colors', product.colorOptions]];
   if (disclosure.tier !== 'public') return [
     ['Model', product.model],
     ['Category', product.label],
+    ...colors,
     ['Detailed specifications', disclosure.tier === 'teaser' ? 'Controlled preview' : 'Available through buyer review']
-  ];
+  ].filter(([, value]) => value);
   return [
     ['Model', product.model],
     ['Category', product.label],
+    ...colors,
     ['Dimensions', product.dimensions],
     ['Minimum order', product.moq],
     ['Container loading', product.loading]
