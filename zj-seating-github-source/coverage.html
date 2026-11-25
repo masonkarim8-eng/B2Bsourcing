@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A visual coverage map and prioritized digital operations roadmap for ZJ Seating.">
+  <title>Digital Coverage Map | ZJ Seating</title>
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/coverage.css">
+</head>
+<body class="coverage-body">
+  <a class="skip-link" href="#coverage-main">Skip to coverage map</a>
+  <header class="coverage-header">
+    <a class="coverage-brand" href="./admin.html#readiness" aria-label="Back to ZJ Seating employee portal">
+      <img src="./assets/logo.png" alt="ZJ Seating Technology">
+      <span>Digital coverage map</span>
+    </a>
+    <nav class="coverage-nav" aria-label="Coverage map navigation">
+      <a href="./simple-guide.html">Simple guide</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#priorities">Priorities</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <button class="print-button" id="print-map" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V3h10v5M7 17H4V9h16v8h-3M7 14h10v7H7v-7Z"/></svg>
+      Print / Save PDF
+    </button>
+  </header>
+
+  <main id="coverage-main">
+    <section class="coverage-hero" aria-labelledby="coverage-title">
+      <div class="coverage-hero-inner">
+        <div class="coverage-hero-copy">
+          <p class="overline">ZJ SEATING / DIGITAL OPERATING MODEL</p>
+          <h1 id="coverage-title">Connect the journey.<br><span>Not just the pages.</span></h1>
+          <p>The customer website and employee portal cover discovery and internal coordination. The largest opportunity is the shared system that carries a buyer from product interest to quotation, production, delivery, service, and reorder.</p>
+          <div class="coverage-hero-actions">
+            <a class="coverage-primary" href="#coverage">Explore the 18 capabilities <span aria-hidden="true">↓</span></a>
+            <a class="coverage-text-link" href="./admin.html#readiness">Open employee portal <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <aside class="fit-thesis" aria-label="Best fit recommendation">
+          <span class="thesis-label">BEST-FIT THESIS</span>
+          <h2>Build the OEM quote-to-order backbone first.</h2>
+          <p>Prioritize governed product data, RFQ-to-quote continuity, sample approvals, and delivery visibility before investing in a complex configurator or broad customer portal.</p>
+          <dl>
+            <div><dt>Business model</dt><dd>OEM / ODM · Export · Private label</dd></div>
+            <div><dt>Primary buyers</dt><dd>Importers · Retailers · Contract buyers</dd></div>
+            <div><dt>Planning lens</dt><dd>Customer + employee + shared operations</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Coverage summary">
+      <div><strong id="covered-count">3</strong><span><i class="signal-dot covered"></i>Represented in concept</span></div>
+      <div><strong id="partial-count">7</strong><span><i class="signal-dot partial"></i>Partially covered</span></div>
+      <div><strong id="gap-count">8</strong><span><i class="signal-dot gap"></i>Not yet addressed</span></div>
+      <div><strong>4</strong><span>Companies publicly benchmarked</span></div>
+    </section>
+
+    <section class="journey-map" aria-labelledby="journey-title">
+      <div class="section-heading compact-heading">
+        <div><p class="overline">THE MISSING MIDDLE</p><h2 id="journey-title">One buyer journey. Three connected layers.</h2></div>
+        <p>The two current concepts are the outer layers. Durable product, commercial, and fulfillment data must connect them.</p>
+      </div>
+      <div class="journey-lanes">
+        <article class="journey-lane customer-lane">
+          <span>CUSTOMER EXPERIENCE</span>
+          <h3>Website + product pages</h3>
+          <div class="journey-steps"><span>Discover</span><span>Evaluate</span><span>Request</span><span>Scan</span></div>
+          <p>Already strong in the concept: brand trust, catalog, model details, quality story, RFQ entry, and NFC destinations.</p>
+        </article>
+        <article class="journey-lane shared-lane">
+          <span>SHARED OPERATING LAYER · MAIN GAP</span>
+          <h3>Product + commercial + fulfillment truth</h3>
+          <div class="journey-steps"><span>PIM / DAM</span><span>CRM / CPQ</span><span>Samples</span><span>ERP / service</span></div>
+          <p>One governed record should follow the model, configuration, buyer, quotation, order, and after-sales history.</p>
+        </article>
+        <article class="journey-lane employee-lane">
+          <span>EMPLOYEE EXPERIENCE</span>
+          <h3>Operations portal</h3>
+          <div class="journey-steps"><span>Prospect</span><span>Draft</span><span>Coordinate</span><span>Review</span></div>
+          <p>Already strong in the concept: outreach, sales handoffs, SOPs, onboarding, tasks, NFC tools, and readiness checks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="coverage-section" id="coverage" aria-labelledby="matrix-title">
+      <div class="section-heading">
+        <div><p class="overline">CAPABILITY COVERAGE MATRIX</p><h2 id="matrix-title">What exists, what peers expose, and what fits ZJ.</h2></div>
+        <p>“In concept” means represented in the frontend—not production-connected. Peer examples are selected public observations, not claims about their internal systems.</p>
+      </div>
+      <div class="coverage-controls">
+        <div class="status-filters" role="group" aria-label="Filter capabilities by coverage">
+          <button type="button" data-status-filter="all" aria-pressed="true">All <span>18</span></button>
+          <button type="button" data-status-filter="covered" aria-pressed="false">In concept <span>3</span></button>
+          <button type="button" data-status-filter="partial" aria-pressed="false">Partial <span>7</span></button>
+          <button type="button" data-status-filter="gap" aria-pressed="false">Not addressed <span>8</span></button>
+        </div>
+        <label class="coverage-search">
+          <span class="sr-only">Search capabilities</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+          <input id="coverage-search" type="search" placeholder="Search capability, recommendation, or owner…" autocomplete="off">
+        </label>
+      </div>
+      <div class="matrix-meta"><p id="filter-status" role="status" aria-live="polite">Showing all 18 capabilities</p><div class="matrix-legend"><span><i class="signal-dot covered"></i>In concept</span><span><i class="signal-dot partial"></i>Partial</span><span><i class="signal-dot gap"></i>Gap</span></div></div>
+      <div class="capability-matrix" role="table" aria-label="Digital capability coverage comparison">
+        <div class="matrix-header" role="row">
+          <div role="columnheader">Capability</div><div role="columnheader">Current concept</div><div role="columnheader">Observed elsewhere</div><div role="columnheader">Best-fit move for ZJ</div><div role="columnheader"><span class="sr-only">Details</span></div>
+        </div>
+        <div id="capability-list" role="rowgroup"></div>
+      </div>
+      <div class="coverage-empty" id="coverage-empty" hidden><h3>No matching capabilities</h3><p>Try a broader term or reset the coverage filter.</p><button type="button" id="reset-filters">Reset filters</button></div>
+    </section>
+
+    <section class="priority-section" id="priorities" aria-labelledby="priority-title">
+      <div class="section-heading">
+        <div><p class="overline">IMPACT × IMPLEMENTATION EFFORT</p><h2 id="priority-title">Sequence the system, not the wish list.</h2></div>
+        <p>Positions are planning judgments for ZJ’s export OEM/ODM model. Select any initiative to see its rationale, owner, and dependencies.</p>
+      </div>
+      <div class="priority-chart">
+        <span class="impact-label high">HIGHER BUSINESS IMPACT</span>
+        <div class="quadrant-grid" id="quadrant-grid">
+          <section class="quadrant quadrant-now" data-quadrant="now"><div class="quadrant-heading"><span>BUILD NOW</span><h3>High value, contained effort</h3></div><div class="quadrant-items"></div></section>
+          <section class="quadrant quadrant-integrate" data-quadrant="integrate"><div class="quadrant-heading"><span>PLAN & INTEGRATE</span><h3>High value, shared dependencies</h3></div><div class="quadrant-items"></div></section>
+          <section class="quadrant quadrant-useful" data-quadrant="useful"><div class="quadrant-heading"><span>USEFUL ADDITIONS</span><h3>Targeted improvements</h3></div><div class="quadrant-items"></div></section>
+          <section class="quadrant quadrant-selective" data-quadrant="selective"><div class="quadrant-heading"><span>SELECTIVE BETS</span><h3>Add when the channel justifies it</h3></div><div class="quadrant-items"></div></section>
+        </div>
+        <div class="effort-axis"><span>LOWER IMPLEMENTATION EFFORT</span><span>HIGHER IMPLEMENTATION EFFORT</span></div>
+      </div>
+      <p class="priority-note"><strong>Deliberate choice:</strong> a full 3D configurator, public price list, and broad dealer portal are not first moves. ZJ gets more leverage from accurate options, quotations, samples, packaging, and order milestones.</p>
+    </section>
+
+    <section class="roadmap-section" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-heading">
+        <div><p class="overline">RECOMMENDED SEQUENCE</p><h2 id="roadmap-title">Three horizons. Each with an exit test.</h2></div>
+        <p>Timing is indicative and should be confirmed after systems, data quality, and internal ownership are assessed.</p>
+      </div>
+      <div class="roadmap-grid">
+        <article class="roadmap-phase"><div class="phase-marker"><span>0–90 DAYS</span><i></i></div><h3>Create the source of truth</h3><ul><li>PIM/DAM for models, options, documents, and revisions</li><li>CRM persistence, ownership, consent, and RFQ source tracking</li><li>Production email authentication and synchronized suppression</li><li>Identity, roles, audit, analytics, and backup foundations</li></ul><div class="exit-test"><strong>Exit test</strong><p>One approved model update reaches the website, quote template, employee view, and NFC destination without re-keying.</p></div></article>
+        <article class="roadmap-phase"><div class="phase-marker"><span>3–6 MONTHS</span><i></i></div><h3>Connect quote to order</h3><ul><li>Export CPQ with currency, MOQ, packaging, tooling, and approvals</li><li>Sample requests, revisions, shipment, feedback, and sign-off</li><li>Invite-only buyer workspace for quotes, approvals, and documents</li><li>ERP-backed production, inspection, and shipment milestones</li></ul><div class="exit-test"><strong>Exit test</strong><p>A buyer and employee see the same approved quotation and current order milestone without emailing a spreadsheet.</p></div></article>
+        <article class="roadmap-phase"><div class="phase-marker"><span>6–12+ MONTHS</span><i></i></div><h3>Add service and differentiation</h3><ul><li>NFC-enabled warranty, parts, care, and product history</li><li>Localized content for the highest-value buyer markets</li><li>Guided configuration; add CAD/BIM for A&D channels</li><li>Verified material, footprint, and product-passport readiness</li></ul><div class="exit-test"><strong>Exit test</strong><p>A scan can resolve the exact model and service context, while every public specification remains governed and current.</p></div></article>
+      </div>
+      <div class="guardrails">
+        <div><span>PRIORITIZE</span><h3>What makes export buying easier</h3><p>Accurate options, MOQ and packaging logic, sample approvals, compliance scope, shipment milestones, and reorder continuity.</p></div>
+        <div><span>ADD SELECTIVELY</span><h3>What depends on the channel</h3><p>CAD/BIM for designers, rich visualization for configurable collections, and EPD/LCA work where verified customer or market demand exists.</p></div>
+        <div><span>DO NOT FAKE</span><h3>What requires real operational data</h3><p>Live inventory, lead times, order status, certificate validity, AI-generated specifications, or sustainability claims without a governed source.</p></div>
+      </div>
+    </section>
+
+    <section class="sources-section" id="sources" aria-labelledby="sources-title">
+      <div class="section-heading compact-heading">
+        <div><p class="overline">PUBLIC BENCHMARK SOURCES</p><h2 id="sources-title">Examples behind the market column.</h2></div>
+        <p>Reviewed 24 November 2026. These are targeted examples from four company websites, not a complete competitive audit or a claim that every feature is universal.</p>
+      </div>
+      <div class="source-list" id="source-list"></div>
+    </section>
+  </main>
+
+  <footer class="coverage-footer"><span>ZJ Seating · Digital coverage map</span><span>Strategic concept · No live systems connected</span><a href="./index.html">Customer website</a></footer>
+
+  <dialog class="capability-dialog" id="capability-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="Close capability details">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+  <script type="module" src="./src/coverage.js"></script>
+</body>
+</html>

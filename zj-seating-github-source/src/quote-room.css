@@ -1,0 +1,31 @@
+.quote-version-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+.quote-version-actions > button { min-height: 40px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 3px; background: var(--raised); color: var(--text); font-size: 10px; font-weight: 700; }
+.quote-version-actions > button:hover { border-color: var(--orange-700); color: var(--orange-700); }
+.quote-version-actions > button[data-share-quote] { border-color: var(--orange-600); background: var(--orange-600); color: var(--paper-50); }
+.quote-version-actions > button[data-share-quote]:hover { background: var(--orange-700); color: var(--paper-50); }
+.quote-room-status { flex-basis: 100%; color: var(--muted); font-size: 9px; font-weight: 800; text-align: right; }
+.quote-room-status.accepted { color: var(--green-600); }
+.quote-room-status.revision-requested { color: var(--orange-700); }
+.quote-room-status.superseded { color: var(--muted); }
+.quote-room-decision { flex-basis: 100%; max-width: 340px; padding: 8px 10px; background: var(--orange-soft); color: var(--text); font-size: 9px; line-height: 1.55; text-align: left; white-space: pre-wrap; overflow-wrap: anywhere; }
+.quote-share-dialog { width: min(calc(100% - 32px), 560px); max-height: calc(100dvh - 32px); margin: auto; overflow: auto; border: 0; border-radius: 4px; padding: 30px; background: var(--raised); color: var(--text); box-shadow: 0 24px 80px oklch(0.15 0.03 255 / .28); }
+.quote-share-dialog::backdrop { background: oklch(0.15 0.03 255 / .7); }
+.quote-share-close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--text); font-size: 24px; }
+.quote-share-dialog h2 { margin-top: 8px; padding-right: 36px; font-family: 'Sora', sans-serif; font-size: 28px; line-height: 1.25; letter-spacing: -.035em; }
+#quote-share-summary { margin-top: 14px; padding: 14px; background: var(--orange-soft); color: var(--text); font-size: 12px; font-weight: 700; overflow-wrap: anywhere; }
+#quote-share-form { margin-top: 20px; }
+#quote-share-form label { display: grid; gap: 7px; font-size: 11px; font-weight: 700; }
+#quote-share-client { width: 100%; min-height: 48px; padding: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 12px; }
+#quote-share-form > p:not(.form-message) { margin: 12px 0 18px; color: var(--muted); font-size: 11px; }
+#quote-share-form > button { width: 100%; }
+.quote-share-dialog > small { display: block; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+@media (max-width: 760px) {
+  .quote-version { grid-template-columns: 38px minmax(0, 1fr); }
+  .quote-version > .version-status, .quote-version-actions { grid-column: 2; justify-self: start; }
+  .quote-version-actions { justify-content: flex-start; }
+  .quote-room-status { text-align: left; }
+}
+@media (max-width: 480px) {
+  .quote-share-dialog { padding: 24px 18px; }
+  .quote-version-actions > button { min-height: 44px; }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore ZJ Seating product stories, factory moments, and design details in a customer-facing social content hub.">
+  <title>Social | ZJ Seating</title>
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="social-page-body">
+  <a class="skip-link" href="#social-main">Skip to content</a>
+
+  <div class="topbar"><div class="shell topbar-inner"><span>OEM / ODM seating · Anji, Zhejiang</span><a href="mailto:info@zjseating.com">info@zjseating.com</a></div></div>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./index.html" aria-label="ZJ Seating home"><img src="./assets/logo.png" alt="ZJ Seating Technology"></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="./index.html#products">Products</a><a href="./index.html#oem">OEM / ODM</a><a href="./index.html#quality">Quality</a><a href="./index.html#factory">Factory</a><a href="./index.html#culture">Culture</a><details class="nav-menu" data-nav-menu><summary aria-controls="about-menu">About us<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary><div class="nav-dropdown" id="about-menu"><a href="./index.html#about">Directory</a><a href="./social.html" aria-current="page">Social</a><a href="./index.html#contact">Contact</a></div></details>
+        <a class="employee-nav-link" href="./admin.html">Employee</a>
+        <button class="button button-small" type="button" data-open-quote>Request a quote <span aria-hidden="true">→</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="social-main">
+    <section class="social-hero" aria-labelledby="social-hero-title">
+      <div class="shell social-hero-grid">
+        <div><p class="overline">THE ZJ SEATING SOCIAL EDIT</p><h1 id="social-hero-title">Seating,<br><span>in the feed.</span></h1></div>
+        <div class="social-hero-copy"><p>Product stories, factory moments, and design details for international buyers—visible in one place.</p><a class="button" href="#social-feed">Explore the latest posts <span aria-hidden="true">↓</span></a><div class="social-preview-note"><strong>PUBLIC CONTENT PREVIEW</strong><span>Approved website content is shown directly here. This is not a live social feed or a claim of posts on official accounts.</span></div></div>
+      </div>
+    </section>
+
+    <section class="section social-feed-section" id="social-feed" aria-labelledby="social-feed-title">
+      <div class="shell">
+        <div class="social-feed-head"><div><p class="overline">DIRECT FROM THE COLLECTION</p><h2 id="social-feed-title">Follow the collection.</h2></div><p>Filter by channel, open a featured model, or share a story with your team.</p></div>
+        <div class="social-filter-bar" role="group" aria-label="Filter social posts"><button type="button" data-social-filter="all" aria-pressed="true">All posts</button><button type="button" data-social-filter="linkedin" aria-pressed="false">LinkedIn</button><button type="button" data-social-filter="facebook" aria-pressed="false">Facebook</button><button type="button" data-social-filter="instagram" aria-pressed="false">Instagram</button></div>
+        <p class="social-result-count" id="social-result-count" role="status"></p>
+        <div class="social-feed-grid" id="social-feed-grid"></div>
+      </div>
+    </section>
+
+    <section class="social-closing" aria-labelledby="social-cta-title"><div class="shell social-closing-grid"><div><p class="overline">FROM THE FEED TO YOUR PROJECT</p><h2 id="social-cta-title">Let’s talk about your next collection.</h2></div><div><p>Bring a model, a reference, or a new product brief. We’ll help shape the next step.</p><button class="button button-light" type="button" data-open-quote>Start an RFQ <span aria-hidden="true">→</span></button></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-grid"><div><img class="footer-logo" src="./assets/logo.png" alt="ZJ Seating Technology"><p>Office, gaming, and lifestyle seating for global B2B buyers.</p></div><div><h3>Explore</h3><a href="./index.html#products">Products</a><a href="./index.html#factory">Factory</a><a href="./index.html#about">About us</a><a href="./index.html#quality">Quality</a><a href="./social.html">Social</a></div><div><h3>Contact</h3><a href="mailto:info@zjseating.com">info@zjseating.com</a><a href="tel:+8615968262285">+86 159 6826 2285</a></div></div><div class="shell footer-bottom"><span>© 2026 ZJ Seating</span><span>Social media page concept</span></div></footer>
+
+  <dialog class="modal quote-modal" id="quote-dialog" aria-labelledby="quote-title">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Close quote form">×</button>
+    <p class="overline">PROJECT INQUIRY</p><h2 id="quote-title">Tell us what you’re building.</h2><p class="dialog-note">A short brief is enough to start the conversation.</p>
+    <form id="quote-form"><div class="form-grid"><label>Request type<select name="requestType" id="request-type"><option value="Request a quote">Request a quote</option><option value="Order a sample">Order a sample</option><option value="Request certificates / test reports">Request certificates / test reports</option></select></label><label>Product / model<input type="text" name="model" id="quote-model" placeholder="e.g. 8329H-RD"></label><label>Name<input type="text" name="name" autocomplete="name" required></label><label>Company<input type="text" name="company" autocomplete="organization"></label><label>Work email<input type="email" name="email" autocomplete="email" required></label><label>Estimated quantity<input type="number" name="quantity" min="1" placeholder="Units"></label><label>Destination<input type="text" name="destination" placeholder="Country / port"></label></div><label>PO template (optional)<small>PDF, Word, Excel, CSV, or TXT · up to 10 MB · saved only in this browser.</small><input type="file" name="poTemplate" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt"></label><label>Project notes<textarea name="notes" id="quote-notes" rows="4" placeholder="Materials, colors, target timing, or customization needs"></textarea></label><button class="button" type="submit">Review inquiry <span aria-hidden="true">→</span></button><p class="form-status" id="form-status" role="status" hidden></p></form>
+  </dialog>
+  <script type="module" src="./src/social-page.js"></script>
+</body>
+</html>

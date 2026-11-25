@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 200" role="img" aria-label="Professional portrait placeholder">
+  <rect width="180" height="200" fill="#e4e9e8"/>
+  <circle cx="90" cy="70" r="36" fill="#9aa8ad"/>
+  <path d="M25 200c3-52 27-82 65-82s62 30 65 82H25Z" fill="#172b40"/>
+  <path d="m70 121 20 27 20-27-10-4H80l-10 4Z" fill="#f5f7f6"/>
+  <path d="m90 148-7 12 7 40 7-40-7-12Z" fill="#b74b20"/>
+</svg>
