@@ -30,7 +30,7 @@ const FACTS = `COMPANY
 - Timing from supplied sheets: office chairs 30-45 days production, samples about 7 days; compressed sofas 30-45 working days. Always subject to the confirmed order.
 - MOQ: published per model below; commonly 50 pcs, study and premium models often 100 pcs, sofas 50 pcs or 50 sets.
 - Pricing: never quoted in chat. It depends on model, specification, quantity, packaging and destination, and comes from sales through an RFQ.
-- Contact: sales@b2bsourcing.org (quotes, samples), info@b2bsourcing.org (general), phone +86 159 6826 2285.
+- Contact: sales@b2bsourcing.org (quotes, samples), researchteam@b2bsourcing.org (R&D team: specific product ideas, custom designs, new features, materials or engineering questions), info@b2bsourcing.org (general), phone +86 159 6826 2285.
 
 CATALOG (the only products that exist; use these model numbers exactly)
 ${CATALOG}`;
@@ -48,6 +48,7 @@ RULES
 - Be brief and practical: 1-4 short sentences, plain text, no markdown, no emoji. Sound like a helpful export sales coordinator, not a chatbot.
 - Recommend specific models when it helps, at most 3.
 - If the buyer asks about gaming chairs, say yes, ZJ makes them and the range is being updated to newer designs, then direct them to sales for the current models (offer the RFQ form with a "quote" action). Do not invent gaming model numbers or specs.
+- If the buyer has a specific idea or custom request (a new design, a feature change, special materials, a product that is not listed, engineering questions), tell them the R&D team can review it directly at researchteam@b2bsourcing.org and offer the "quote" action with value "rnd", which opens a form that goes to the R&D team.
 - If the buyer asks for any other product type that is not in the catalog, say so plainly, suggest the closest catalog models, and mention that OEM/ODM development is possible and sales can confirm it.
 - When the buyer shows real interest (asks about pricing, samples, a project, quantities, customization), ask for their name, company and work email so the sales team can follow up. Ask once; do not insist.
 - If the buyer gives an email, thank them and say the sales team will reply to that email.
@@ -55,7 +56,7 @@ RULES
 
 OUTPUT
 Return only JSON: {"reply": string, "actions": [{"type": string, "value": string}]}
-Allowed actions (0-3): "product" with a model number (open the product), "rfq-add" with a model number (add to RFQ list), "quote" with a model number, "gaming" for gaming chair inquiries, or "" (open the inquiry form), "filter" with one of ${CATEGORIES.join(', ')} or "all" (show that category), "scroll" with one of ${SECTIONS.join(', ')}, "documents" with "" (request certificates).`;
+Allowed actions (0-3): "product" with a model number (open the product), "rfq-add" with a model number (add to RFQ list), "quote" with a model number, "gaming" for gaming chair inquiries, "rnd" for custom ideas for the R&D team, or "" (open the inquiry form), "filter" with one of ${CATEGORIES.join(', ')} or "all" (show that category), "scroll" with one of ${SECTIONS.join(', ')}, "documents" with "" (request certificates).`;
 }
 
 export async function handleChat(request, env, { sendLead }) {
@@ -116,8 +117,14 @@ function parseReply(result) {
     .filter((a) => { const key = `${a.type}:${a.value}`; if (seen.has(key)) return false; seen.add(key); return true; })
     .slice(0, 3)
     .map((a) => ({ type: a.type, value: String(a.value || '') }));
-  // A gaming answer should always offer the inquiry form.
-  if (gaming && !actions.some((a) => a.type === 'quote')) actions.unshift({ type: 'quote', value: 'gaming' });
+  // Gaming and R&D answers should always offer the matching inquiry form.
+  const rnd = /researchteam@|R&D team|研发团队|equipo de I\+D|F&E-Team/i.test(reply);
+  if (rnd) {
+    const plain = actions.findIndex((a) => a.type === 'quote' && a.value === '');
+    if (plain >= 0) actions.splice(plain, 1);
+    if (!actions.some((a) => a.value === 'rnd')) actions.unshift({ type: 'quote', value: 'rnd' });
+  }
+  if (gaming && !actions.some((a) => a.value === 'gaming')) actions.unshift({ type: 'quote', value: 'gaming' });
   return { reply, actions: actions.slice(0, 3) };
 }
 
@@ -125,6 +132,7 @@ function parseReply(result) {
 function repairAction(a, gaming) {
   if (!a || typeof a !== 'object') return a;
   const value = String(a.value || '');
+  if (a.type === 'quote' && (value === 'gaming' || value === 'rnd')) return a;
   if ((a.type === 'product' || a.type === 'rfq-add' || a.type === 'quote') && !MODELS.includes(value) && value !== '') {
     return { type: 'quote', value: gaming || /gaming/i.test(value) ? 'gaming' : '' };
   }
@@ -136,7 +144,7 @@ function validAction(a) {
   if (!a || !ACTION_TYPES.includes(a.type)) return false;
   const value = String(a.value || '');
   if (a.type === 'product' || a.type === 'rfq-add') return MODELS.includes(value);
-  if (a.type === 'quote') return value === '' || value === 'gaming' || MODELS.includes(value);
+  if (a.type === 'quote') return value === '' || value === 'gaming' || value === 'rnd' || MODELS.includes(value);
   if (a.type === 'filter') return value === 'all' || CATEGORIES.includes(value);
   if (a.type === 'scroll') return SECTIONS.includes(value);
   return true;

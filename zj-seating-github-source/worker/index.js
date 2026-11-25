@@ -8,7 +8,8 @@ const SENDER = 'website@b2bsourcing.org';
 const ROUTES = {
   'Request a quote': 'sales',
   'Order a sample': 'sales',
-  'Request certificates / test reports': 'researchteam'
+  'Request certificates / test reports': 'researchteam',
+  'Custom design / R&D request': 'researchteam'
 };
 const MAX_FILE_BYTES = 10 * 1024 * 1024;
 const FILE_TYPES = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'txt'];
