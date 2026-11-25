@@ -6,39 +6,31 @@
   <meta name="description" content="Product specifications and sourcing details from ZJ Seating.">
   <title>Product Details | ZJ Seating</title>
   <link rel="icon" type="image/png" href="./assets/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body class="product-page-body">
   <a class="skip-link" href="#product-main">Skip to product details</a>
 
-  <div class="topbar">
-    <div class="shell topbar-inner">
-      <span>OEM / ODM seating · Anji, Zhejiang</span>
-      <a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a>
+  <div class="utility">
+    <div class="shell utility-inner">
+      <span class="utility-company">Zhejiang Seating Technology Co., Ltd. · Anji, Zhejiang, China</span>
+      <div class="utility-links"><a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a><a href="./client.html">Client Account</a><nav class="lang-switch" aria-label="Language" data-lang-switch><button type="button" data-set-lang="en" lang="en">EN</button><button type="button" data-set-lang="zh" lang="zh">中文</button><button type="button" data-set-lang="es" lang="es">ES</button><button type="button" data-set-lang="de" lang="de">DE</button></nav></div>
     </div>
   </div>
 
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="./index.html" aria-label="ZJ Seating home">
-        <img src="./assets/logo.png" alt="ZJ Seating Technology">
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="brand" href="./index.html" aria-label="ZJ Seating home"><img src="./assets/logo-ink.png" alt="ZJ Seating Technology" width="337" height="72"></a>
       <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="./index.html#products">Products</a>
-        <a href="./index.html#oem">OEM / ODM</a>
-        <a href="./index.html#quality">Quality</a>
-        <a href="./index.html#factory">Factory</a>
-        <a href="./index.html#culture">Culture</a>
-        <details class="nav-menu" data-nav-menu><summary aria-controls="about-menu">About us<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary><div class="nav-dropdown" id="about-menu"><a href="./index.html#about">Directory</a><a href="./social.html">Social</a><a href="./index.html#contact">Contact</a></div></details>
-        <a class="employee-nav-link" href="./admin.html">Employee</a>
-        <button class="button button-small" type="button" data-open-quote>Request a quote <span aria-hidden="true">→</span></button>
+        <a href="./index.html#products">Catalog</a><a href="./index.html#oem">OEM / ODM</a><a href="./index.html#factory">Manufacturing</a><a href="./index.html#quality">Standards</a><a href="./index.html#contact">Contact</a>
+        <div class="nav-mobile-extra"><nav class="lang-switch" aria-label="Language" data-lang-switch><button type="button" data-set-lang="en" lang="en">EN</button><button type="button" data-set-lang="zh" lang="zh">中文</button><button type="button" data-set-lang="es" lang="es">ES</button><button type="button" data-set-lang="de" lang="de">DE</button></nav><a href="./client.html">Client Account</a><a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a></div>
       </nav>
+      <div class="header-actions">
+        <button class="rfq-link" type="button" data-rfq-open>RFQ <span class="rfq-link-count" data-rfq-count>0</span></button>
+        <button class="button" type="button" data-open-quote>Request a quote</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+      </div>
     </div>
   </header>
 
@@ -100,11 +92,15 @@
 
   <footer class="site-footer">
     <div class="shell footer-grid">
-      <div><img class="footer-logo" src="./assets/logo.png" alt="ZJ Seating Technology"><p>Office, gaming, and lifestyle seating for global B2B buyers.</p></div>
-      <div><h3>Explore</h3><a href="./index.html#products">Products</a><a href="./index.html#factory">Factory</a><a href="./index.html#about">About us</a><a href="./index.html#quality">Quality</a><a href="./social.html">Social</a></div>
-      <div><h3>Contact</h3><a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a><a href="tel:+8615968262285">+86 159 6826 2285</a></div>
+      <div class="footer-brand">
+        <img src="./assets/logo-ink.png" alt="ZJ Seating Technology" width="337" height="72" loading="lazy">
+        <p>Zhejiang Seating Technology Co., Ltd. · Anji, Zhejiang, China</p>
+        <p class="footer-standards">ISO 9001 · ISO 14001 · ANSI/BIFMA X5.1 · EN 1335</p>
+      </div>
+      <div><h3>Catalog</h3><a href="./index.html#products">Catalog</a><a href="./index.html#oem">OEM / ODM</a><a href="./index.html#factory">Manufacturing</a><a href="./index.html#quality">Standards</a><a href="./social.html">Social</a><a href="./client.html">Client Account</a></div>
+      <div><h3>Contact</h3><a href="mailto:sales@b2bsourcing.org">sales@b2bsourcing.org</a><a href="mailto:info@b2bsourcing.org">info@b2bsourcing.org</a><a href="tel:+8615968262285">+86 159 6826 2285</a></div>
     </div>
-    <div class="shell footer-bottom"><span>© 2026 ZJ Seating</span><span>Concept site by B2B Sourcing · Not the official ZJ Seating website</span></div>
+    <div class="shell footer-bottom"><span>© 2026 ZJ Seating</span><span class="footer-credit">Concept by B2B Sourcing</span><nav class="footer-staff-links" aria-label="Employee access"><a class="employee-nav-link" href="./admin.html">Employee Portal</a><a class="manager-approval-nav-link" href="./admin.html#approvals">Manager Approvals</a></nav></div>
   </footer>
 
   <dialog class="modal quote-modal" id="quote-dialog" aria-labelledby="quote-title">
@@ -114,17 +110,17 @@
     <p class="dialog-note">The product model is already included in your brief.</p>
     <form id="quote-form">
       <div class="form-grid">
-        <label>Request type<select name="requestType" id="request-type"><option value="Request a quote">Request a quote</option><option value="Order a sample">Order a sample</option><option value="Request certificates / test reports">Request certificates / test reports</option><option value="Custom design / R&amp;D request">Custom design / R&amp;D request</option></select></label>
-        <label>Product / model<input type="text" name="model" id="quote-model" readonly></label>
-        <label>Name<input type="text" name="name" autocomplete="name" required></label>
+        <label>Request Type<select name="requestType" id="request-type"><option value="Request a quote">Request a quote</option><option value="Order a sample">Order a sample</option><option value="Request certificates / test reports">Request certificates / test reports</option><option value="Custom design / R&amp;D request">Custom design / R&amp;D request</option></select></label>
+        <label>Selected Models (RFQ List)<input type="text" name="model" id="quote-model" readonly></label>
+        <label>Full Name<input type="text" name="name" autocomplete="name" required></label>
         <label>Company<input type="text" name="company" autocomplete="organization"></label>
-        <label>Work email<input type="email" name="email" autocomplete="email" required></label>
-        <label>Estimated quantity<input type="number" name="quantity" min="1" placeholder="Units"></label>
-        <label>Destination<input type="text" name="destination" placeholder="Country / port"></label>
+        <label>Work Email<input type="email" name="email" autocomplete="email" required></label>
+        <label>Estimated Quantity (Units)<input type="number" name="quantity" min="1"></label>
+        <label>Destination Country / Port<input type="text" name="destination"></label>
       </div>
-      <label>PO template (optional)<small>PDF, Word, Excel, CSV, or TXT · up to 10 MB · sent with your inquiry.</small><input type="file" name="poTemplate" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt"></label>
-      <label>Project notes<textarea name="notes" id="quote-notes" rows="4" placeholder="Materials, colors, target timing, or customization needs"></textarea></label>
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAGSG6guXB_bEfp2l" data-size="flexible"></div><input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="button" type="submit">Send inquiry <span aria-hidden="true">→</span></button>
+      <label>PO Template (Optional · PDF, DOCX, XLSX, CSV, TXT · up to 10 MB)<input type="file" name="poTemplate" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt"></label>
+      <label>Specifications, Finishes &amp; Target Timing<textarea name="notes" id="quote-notes" rows="4"></textarea></label>
+      <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="button" type="submit">Send Inquiry</button>
       <p class="form-status" id="form-status" role="status" hidden></p>
     </form>
   </dialog>

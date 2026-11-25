@@ -125,6 +125,12 @@ export function initRFQ({ products, onSubmit }) {
   }
 
   function render() {
+    // Pages with an RFQ link in the header use that instead of the floating button.
+    root.hidden = Boolean(document.querySelector('[data-rfq-open]'));
+    document.querySelectorAll('[data-rfq-count]').forEach((count) => {
+      count.textContent = String(items.length);
+      count.hidden = items.length === 0;
+    });
     toggleCount.textContent = String(items.length);
     toggleCount.hidden = items.length === 0;
     root.querySelector('[data-rfq-toggle-label]').textContent = t('rfq.list');

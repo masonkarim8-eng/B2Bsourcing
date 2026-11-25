@@ -2,13 +2,14 @@ import './style.css';
 import './nav-menu.js';
 import { publicProducts as products } from './public-products.js';
 import { getDisclosure, publicDescription, publicSpecs } from './disclosure.js';
+import { productCardHtml } from './catalog-card.js';
 import { initComparison } from './comparison.js';
 import { initRFQ, rfqNotes } from './rfq.js';
 import { initI18n, onLanguageChange, t, translateText, translateTree } from './i18n.js';
 import { localizedProductName, localizedPublicDescription } from './product-copy.js';
 import { captureAttribution } from './sharing.js';
 import { saveLocalLead } from './lead-handoff.js';
-import { leadStatusMessage, resetInquiryCheck, showInquirySuccess } from './lead-status.js';
+import { leadStatusMessage, markInquiryOpened, resetInquiryCheck, showInquirySuccess } from './lead-status.js';
 import { getLanguage } from './i18n.js';
 import { getAuthenticatedClient } from './client-store.js';
 
@@ -41,34 +42,23 @@ let syncComparisonButtons = () => {};
 let syncRFQButtons = () => {};
 let activeFilter = 'all';
 
-function productCard(product) {
-  const landingUrl = `./product.html?model=${encodeURIComponent(product.model)}`;
-  const disclosure = getDisclosure(product);
-  return `
-    <article class="product-card" data-category="${product.category}" data-disclosure="${disclosure.tier}">
-      <a class="product-image" href="${landingUrl}" aria-label="Open ${product.name} product page"><img src="${product.image}" alt="${product.alt}" loading="lazy" width="600" height="600"><span class="disclosure-badge">${disclosure.badge}</span></a>
-      <div class="product-meta">
-        <span>${product.label}</span>
-        <h3>${product.model}</h3>
-        <p>${disclosure.tier === 'teaser' ? 'A limited preview of our next premium executive direction.' : product.summary}</p>
-        <div class="product-card-actions">
-          <a class="text-link" href="${landingUrl}" aria-label="View ${product.name} product page">${disclosure.action} <span aria-hidden="true">→</span></a>
-          <button class="text-link" type="button" data-quick-view="${product.model}" aria-label="Quick view ${product.name}">Quick view</button>
-          <button class="compare-toggle" type="button" data-compare-model="${product.model}" aria-pressed="false" aria-label="Add ${product.model} to comparison">Compare</button>
-          <button class="rfq-add" type="button" data-rfq-add="${product.model}" aria-pressed="false">Add to RFQ</button>
-        </div>
-      </div>
-    </article>`;
-}
-
 function renderProducts(filter = 'all') {
   activeFilter = filter;
-  const visibleProducts = filter === 'all' ? products : products.filter((product) => product.category === filter);
-  productGrid.innerHTML = visibleProducts.map(productCard).join('');
-  productCount.textContent = t('catalog.count', { count: visibleProducts.length });
-  translateTree(productGrid);
+  let visible = 0;
+  productGrid.querySelectorAll('.product-card').forEach((card) => {
+    const show = filter === 'all' || card.dataset.category === filter;
+    card.hidden = !show;
+    if (show) visible += 1;
+  });
+  productCount.textContent = t('catalog.count', { count: visible });
   syncComparisonButtons();
   syncRFQButtons();
+}
+
+// Cards are in the static HTML (written at build time). Render them only if missing, e.g. in dev.
+if (!productGrid.querySelector('.product-card')) {
+  productGrid.innerHTML = products.map((product) => productCardHtml(product)).join('');
+  translateTree(productGrid);
 }
 
 function applyFilter(filter, scrollToCatalog = false) {
@@ -110,6 +100,7 @@ function openQuote(model = '', type = 'Request a quote', { notes = '' } = {}) {
   }
   if ([...requestType.options].some((option) => option.value === type)) requestType.value = type;
   formStatus.hidden = true;
+  markInquiryOpened(document.querySelector('#quote-form'));
   showDialog(quoteDialog);
 }
 
@@ -118,6 +109,7 @@ const rfq = initRFQ({
   onSubmit: (items) => openQuote(items.map((item) => item.model).join(', '), 'Request a quote', { notes: rfqNotes(items) })
 });
 syncRFQButtons = rfq.syncButtons;
+document.querySelectorAll('[data-rfq-open]').forEach((button) => button.addEventListener('click', () => { closeNav(); rfq.openReview(); }));
 syncRFQButtons();
 
 const comparison = initComparison({
@@ -143,7 +135,21 @@ function openProduct(model) {
   document.querySelector('#product-dialog-description').textContent = localizedPublicDescription(product);
   document.querySelector('#product-page-link').href = `./product.html?model=${encodeURIComponent(product.model)}`;
   document.querySelector('#product-dialog-note').textContent = disclosure.note;
-  document.querySelector('#request-model').firstChild.textContent = `${disclosure.request} `;
+  
+document.querySelectorAll('[data-open-quote]').forEach((button) => {
+  button.addEventListener('click', () => {
+    closeNav();
+    if (button.dataset.requestType) openQuote('', button.dataset.requestType);
+    else if (rfq.getItems().length) rfq.openReview();
+    else openQuote('');
+  });
+});
+
+document.querySelectorAll('[data-cert]').forEach((button) => {
+  button.addEventListener('click', () => openQuote('', 'Request certificates / test reports', { notes: `Certificate requested: ${button.dataset.cert}\n` }));
+});
+
+document.querySelector('#request-model').firstChild.textContent = `${disclosure.request} `;
 
   const specs = publicSpecs(product).filter(([term]) => disclosure.tier === 'public' || !['Dimensions', 'Minimum order', 'Container loading'].includes(term));
   const specList = document.querySelector('#product-dialog-specs');
@@ -157,15 +163,14 @@ function openProduct(model) {
 document.querySelectorAll('[data-open-quote]').forEach((button) => {
   button.addEventListener('click', () => {
     closeNav();
-    if (button.dataset.department) openQuote('', button.dataset.requestType || 'Request a quote', { notes: `Department: ${button.dataset.department}\n` });
-    else if (button.dataset.requestType) openQuote('', button.dataset.requestType);
-    else rfq.openReview();
+    if (button.dataset.requestType) openQuote('', button.dataset.requestType);
+    else if (rfq.getItems().length) rfq.openReview();
+    else openQuote('');
   });
 });
 
-productGrid.addEventListener('click', (event) => {
-  const button = event.target.closest('[data-quick-view]');
-  if (button) openProduct(button.dataset.quickView);
+document.querySelectorAll('[data-cert]').forEach((button) => {
+  button.addEventListener('click', () => openQuote('', 'Request certificates / test reports', { notes: `Certificate requested: ${button.dataset.cert}\n` }));
 });
 
 document.querySelector('#request-model').addEventListener('click', () => {
@@ -212,7 +217,6 @@ document.querySelector('#quote-form').addEventListener('submit', async (event) =
   }
 });
 
-const assistantToggle = document.querySelector('#assistant-toggle');
 const assistantPanel = document.querySelector('#assistant-panel');
 const assistantClose = document.querySelector('#assistant-close');
 const assistantLog = document.querySelector('#assistant-log');
@@ -253,17 +257,20 @@ function appendMessage(sender, text, actions = []) {
   assistantLog.scrollTop = assistantLog.scrollHeight;
 }
 
-function openAssistant() {
+let assistantOpener = null;
+function openAssistant(opener) {
+  closeNav();
+  assistantOpener = opener || null;
   assistantPanel.hidden = false;
-  assistantToggle.setAttribute('aria-expanded', 'true');
+  document.querySelectorAll('[data-open-assistant]').forEach((button) => button.setAttribute('aria-expanded', 'true'));
   assistantInput.focus();
 }
 
 function closeAssistant(returnFocus = true) {
   if (assistantPanel.hidden) return;
   assistantPanel.hidden = true;
-  assistantToggle.setAttribute('aria-expanded', 'false');
-  if (returnFocus) assistantToggle.focus();
+  document.querySelectorAll('[data-open-assistant]').forEach((button) => button.setAttribute('aria-expanded', 'false'));
+  if (returnFocus) assistantOpener?.focus();
 }
 
 function scrollToSection(id) {
@@ -445,9 +452,10 @@ async function askAssistant(question) {
   }
 }
 
-assistantToggle.addEventListener('click', () => {
-  if (assistantPanel.hidden) openAssistant();
-  else closeAssistant();
+document.querySelectorAll('[data-open-assistant]').forEach((button) => {
+  button.setAttribute('aria-controls', 'assistant-panel');
+  button.setAttribute('aria-expanded', 'false');
+  button.addEventListener('click', () => (assistantPanel.hidden ? openAssistant(button) : closeAssistant()));
 });
 assistantClose.addEventListener('click', () => closeAssistant());
 

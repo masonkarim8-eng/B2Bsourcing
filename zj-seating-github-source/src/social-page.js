@@ -6,7 +6,7 @@ import { initI18n, onLanguageChange, getLanguage, t, translateTree } from './i18
 import { initRFQ, rfqNotes } from './rfq.js';
 import { attributedProductUrl, captureAttribution } from './sharing.js';
 import { saveLocalLead } from './lead-handoff.js';
-import { leadStatusMessage, resetInquiryCheck, showInquirySuccess } from './lead-status.js';
+import { leadStatusMessage, markInquiryOpened, resetInquiryCheck, showInquirySuccess } from './lead-status.js';
 
 initI18n();
 captureAttribution();
@@ -55,9 +55,11 @@ function openQuote(models = '', notes = '') {
   quoteModel.value = models;
   quoteNotes.value = notes;
   formStatus.hidden = true;
+  markInquiryOpened(document.querySelector('#quote-form'));
   if (!quoteDialog.open) quoteDialog.showModal();
 }
 const rfq = initRFQ({ products, onSubmit: (items) => openQuote(items.map((item) => item.model).join(', '), rfqNotes(items)) });
+document.querySelectorAll('[data-rfq-open]').forEach((button) => button.addEventListener('click', () => rfq.openReview()));
 document.querySelectorAll('[data-open-quote]').forEach((button) => button.addEventListener('click', () => { closeNav(); rfq.openReview(); }));
 document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => button.closest('dialog').close()));
 quoteDialog.addEventListener('click', (event) => { if (event.target === quoteDialog) quoteDialog.close(); });
