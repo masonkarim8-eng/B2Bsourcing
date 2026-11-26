@@ -237,7 +237,7 @@ export function initRFQ({ products, onSubmit }) {
 
 export function rfqNotes(items) {
   if (!items.length) return '';
-  return items.map((item) => t('rfq.line', {
+  return items.map((item) => (!item.quantity && !item.notes) ? item.model : t('rfq.line', {
     model: item.model,
     quantity: item.quantity || t('rfq.notSpecified'),
     notes: item.notes || t('rfq.none')
