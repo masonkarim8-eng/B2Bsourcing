@@ -95,6 +95,7 @@ h2 { font-family: var(--font-serif); font-size: clamp(32px, 3.6vw, 48px); line-h
 .hero-sub p { max-width: 56ch; color: var(--taupe); font-size: 18px; line-height: 1.65; }
 .hero-links { display: flex; gap: 28px; flex-wrap: wrap; }
 .bleed img { width: 100%; height: clamp(300px, 54vw, 760px); object-fit: cover; }
+@media (max-width: 640px) { .bleed img { height: auto; } }
 .bleed figcaption { padding-block: 12px; color: var(--taupe); font-size: 12px; letter-spacing: .04em; }
 .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-block: 40px 0; border-top: 1px solid var(--hairline); }
 .facts > div { padding: 24px 24px 0 0; }
@@ -310,7 +311,8 @@ body.has-shortlist .assistant-panel { height: min(620px, calc(100dvh - 190px)); 
 .product-landing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 28px; }
 .product-share { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 20px; color: var(--taupe); font-size: 13px; }
 .product-share-links { display: flex; flex-wrap: wrap; gap: 14px; }
-.product-share-links a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--hairline); text-underline-offset: 4px; }
+.product-share-links a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); text-decoration: underline; text-decoration-color: var(--hairline); text-underline-offset: 4px; }
+.product-share-links svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .copy-status { margin-top: 10px; color: var(--taupe); font-size: 13px; }
 .qr-ready { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 28px; align-items: center; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--hairline); }
 .qr-code-wrap { display: grid; justify-items: center; gap: 8px; color: var(--taupe); font-size: 11px; letter-spacing: .1em; }
